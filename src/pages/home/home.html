@@ -1,14 +1,14 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Ionic Blank
+      Blue-On Localizador
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+    <beacon *ngFor="let device of saved_devices" [device]="device" (saved)="finishEdit($event)"></beacon>
+  <ion-fab right bottom (click)="add()" [hidden]="hideAdd">
+    <button ion-fab>add</button>
+  </ion-fab>
 </ion-content>

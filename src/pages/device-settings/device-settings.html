@@ -1,0 +1,45 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-buttons end>
+      <button ion-button icon-left (click)="guardar()">
+        <ion-icon name="checkmark"></ion-icon>
+        Listo
+      </button>
+    </ion-buttons>
+    <ion-title>Configuarar dispositivo</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <ion-card>
+    <ion-list>
+      <ion-list-header>
+        <ion-icon name="bluetooth" item-start></ion-icon>
+        Estado
+      </ion-list-header>
+      <ion-item>
+        <h2 text-center>Conectado</h2>
+      </ion-item>
+    </ion-list>
+  </ion-card>
+
+  <ion-card>
+    <ion-list>
+      <ion-list-header>
+        <ion-icon name="document" item-start></ion-icon>
+        Registro
+      </ion-list-header>
+      <ion-item>
+        <ion-label stacked>NOMBRE</ion-label>
+        <ion-input type="text" [(ngModel)]="device.nombre" placeholder="ingrese el nombre que le quiere asignar al dispositivo"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label stacked>UID</ion-label>
+        <ion-input type="text" [(ngModel)]="device.uid" placeholder="identificador unico del dispositivo"></ion-input>
+      </ion-item>
+    </ion-list>
+  </ion-card>
+</ion-content>

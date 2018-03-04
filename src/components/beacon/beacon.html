@@ -1,0 +1,23 @@
+<ion-card>
+  <ion-list>
+    <ion-item-sliding>
+      <ion-item class="data">
+        <div item-content>
+          <h2>{{device.nombre}}</h2>
+          <p>{{device.uid}}</p>
+        </div>
+        <button ion-button icon-only clear item-end (click)="buscar()">
+          <ion-icon ios="ios-radio-outline" md="md-wifi"></ion-icon>
+        </button>
+      </ion-item>
+      <ion-item-options side="left">
+        <button ion-button icon-only color="danger" (click)="borrar()">
+          <ion-icon name="trash"></ion-icon>
+        </button>
+        <button ion-button icon-only color="secondary" (click)="editar()">
+          <ion-icon name="create"></ion-icon>
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+</ion-card>
