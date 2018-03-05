@@ -1,5 +1,5 @@
 <ion-header no-border>
-  <ion-navbar color="primary">
+  <ion-navbar color="transparent">
     <ion-title>search</ion-title>
   </ion-navbar>
 </ion-header>
@@ -11,13 +11,16 @@
 
 <ion-content>
 
-  <ion-grid style="height: 100%" [ngStyle]="{'background': backgorund}">
+  <ion-grid style="height: 100%" [ngStyle]="{'background-color': background}">
     <ion-row justify-content-center align-items-center style="height: 100%">
       <ion-card>
-              <h1 [hidden]="distance < 1" no-padding no-margin>{{distance}} m</h1>
-              <h1 [hidden]="distance > 1" no-margin>menos de un metro</h1>
+        <h1 [hidden]="distance < 5" no-padding no-margin>Estas muy lejos</h1>
+        <h1 [hidden]="!((distance > 3) && (distance <= 5))" no-padding no-margin>Estas lejos</h1>
+        <h1 [hidden]="!((distance > 1) && (distance <= 3))" no-padding no-margin>Estas cerca</h1>
+        <h1 [hidden]="distance > 1 && distance < 0" no-margin>Estas muy cerca</h1>
 
-              <h3 no-padding no-margin>distancia aproximada</h3>
+
+              <h3 no-padding no-margin>distancia aproximada {{distance}}m</h3>
       </ion-card>
     </ion-row>
   </ion-grid>

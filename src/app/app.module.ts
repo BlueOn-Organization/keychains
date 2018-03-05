@@ -15,6 +15,20 @@ import { ComponentsModule } from '../components/components.module';
 import { BeaconsStorage } from '../providers/beacons-storage/beacons-storage';
 import { FinderProvider } from '../providers/finder/finder';
 
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+import { AngularFirestoreModule } from 'angularfire2/firestore';
+import { AuthProvider } from '../providers/auth/auth';
+
+const firebaseConfig = {
+  apiKey: "AIzaSyDkG0xW9jkNCm0HnKCt6ddx5F-HyDUdulM",
+  authDomain: "blue-on.firebaseapp.com",
+  databaseURL: "https://blue-on.firebaseio.com",
+  projectId: "blue-on",
+  storageBucket: "blue-on.appspot.com",
+  messagingSenderId: "88739997891"
+};
+
 @NgModule({
   declarations: [
     MyApp,
@@ -24,6 +38,9 @@ import { FinderProvider } from '../providers/finder/finder';
     BrowserModule,
     IonicModule.forRoot(MyApp),
     IonicStorageModule.forRoot(),
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireAuthModule,
+    AngularFirestoreModule.enablePersistence(),
     ComponentsModule
   ],
   bootstrap: [IonicApp],
@@ -39,7 +56,8 @@ import { FinderProvider } from '../providers/finder/finder';
     BLE,
     IBeacon,
     BeaconsStorage,
-    FinderProvider
+    FinderProvider,
+    AuthProvider
   ]
 })
 export class AppModule {}

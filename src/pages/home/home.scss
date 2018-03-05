@@ -17,5 +17,17 @@ page-home {
     position: absolute;
     right: 0;
   }
+  .scroll-content{
+    display: flex;
+    flex-direction: column;
+    align-content: stretch;
+    padding-top: 5px;
+    background-image: url('../assets/imgs/1278.jpg');
+    background-size: cover;
+  }
 
+  #by{
+    position: fixed;
+    bottom: 10px;
+  }
 }

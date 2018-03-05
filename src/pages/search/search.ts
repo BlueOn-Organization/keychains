@@ -36,9 +36,24 @@ export class SearchPage {
           // if (distance < 1 && this.distance > 1) {
           //   this.dialogs.beep(1);
           // }
-          this.background = '#2575bb';
+
+
+          if(this.distance < 1){
+            this.background = '#2575bb';
+          }else{
+            if(this.distance < 3){
+              this.background = '#0a1863';
+            }else{
+              if(this.distance < 5){
+                this.background = '#edd015';
+              }else{
+                this.background = '#bc1e0d';
+              }
+            }
+          }
           this.distance = distance;
         }
+
       });
     });
 
