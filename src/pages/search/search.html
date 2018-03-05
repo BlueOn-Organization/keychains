@@ -1,10 +1,22 @@
 <ion-header no-border>
-  <ion-navbar transparent>
+  <ion-navbar color="primary">
     <ion-title>search</ion-title>
   </ion-navbar>
 </ion-header>
 
+<!--
+<ion-content >
+  <div id="distance"><span center>{{ distance }}</span></div>
+</ion-content> -->
 
-<ion-content fullscreen>
+<ion-content>
 
+  <ion-grid style="height: 100%">
+    <ion-row justify-content-center align-items-center style="height: 100%">
+      <ion-card>
+              <h1 no-padding no-margin>{{distance}} m</h1>
+              <h3 no-padding no-margin>distancia</h3>
+      </ion-card>
+    </ion-row>
+  </ion-grid>
 </ion-content>

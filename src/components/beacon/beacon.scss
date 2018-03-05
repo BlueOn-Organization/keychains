@@ -21,6 +21,14 @@ beacon {
     }
   }
 
+  ion-item-options .button:last-child {
+    padding-right: 0 !important;
+  }
+
+  .list-md ion-item-sliding {
+    background-color: map-get($colors, primary);
+  }
+
   #nombre {
 
   }

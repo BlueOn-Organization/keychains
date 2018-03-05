@@ -19,7 +19,7 @@ export class BeaconsStorage {
   loadStorage(): Promise<any> {
     return this.storage.get('beacons').then(beacons => {
       this.loaded = true;
-      this.beacons = beacons;
+      this.beacons = beacons ? beacons : [];
 
       return this.beacons;
     }).catch(console.log);

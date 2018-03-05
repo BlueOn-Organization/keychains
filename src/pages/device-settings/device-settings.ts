@@ -9,6 +9,7 @@ import { Beacon, BeaconsStorage } from '../../providers/beacons-storage/beacons-
 })
 export class DeviceSettingsPage {
   create: boolean;
+  edit: boolean;
   device: Beacon;
   aux_copy_device: Beacon;
 
@@ -19,6 +20,7 @@ export class DeviceSettingsPage {
     private storage: BeaconsStorage
   ) {
     this.create = navParams.get('new');
+    this.edit = navParams.get('edit');
     this.device = navParams.get('beacon');
     this.aux_copy_device = Object.assign({}, this.device);
   }

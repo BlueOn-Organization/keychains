@@ -1,3 +1,21 @@
 page-home {
+  ion-header .toolbar-title {
+    padding: 0 !important;
+  }
+
+  #name {
+    position: absolute;
+    left: 55px;
+    top: 10px;
+  }
+
+  #logo {
+    display: inline-block
+  }
+
+  #like {
+    position: absolute;
+    right: 0;
+  }
 
 }

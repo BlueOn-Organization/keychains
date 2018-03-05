@@ -1,10 +1,24 @@
 page-device-settings {
-  ion-card {
-    margin: 10px 0 !important;
-    width: 100% !important;
-
-    &:first-child, &:last-child {
-      margin-top: 0 !important;
+    #estado {
+      ion-list-header {
+        margin: 0;
+      }
+      h2 {
+        color: #7f7f7f;
+      }
+      margin-bottom: 20px;
     }
-  }
+    ion-list-header {
+        border: none !important;
+        color: map-get($colors, 'primary') !important;
+    }
+    ion-item:last-child {
+        border-bottom: 0 !important;
+    }
+    .list-md .item-block .item-inner {
+        border-bottom: 1px solid #dedede;
+        border-bottom-width: 1px;
+        border-bottom-style: solid;
+        border-bottom-color: rgb(222, 222, 222);
+    }
 }

@@ -5,11 +5,14 @@ import { IonicStorageModule } from '@ionic/storage';
 
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
+import { BLE } from '@ionic-native/ble';
+import { IBeacon } from '@ionic-native/ibeacon';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ComponentsModule } from '../components/components.module';
 import { BeaconsStorage } from '../providers/beacons-storage/beacons-storage';
+import { FinderProvider } from '../providers/finder/finder';
 
 @NgModule({
   declarations: [
@@ -31,7 +34,10 @@ import { BeaconsStorage } from '../providers/beacons-storage/beacons-storage';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    BeaconsStorage
+    BLE,
+    IBeacon,
+    BeaconsStorage,
+    FinderProvider
   ]
 })
 export class AppModule {}

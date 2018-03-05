@@ -1,12 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, NgZone } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
-/**
- * Generated class for the SearchPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { IBeacon, BeaconRegion } from '@ionic-native/ibeacon';
+import { BLE } from '@ionic-native/ble';
+import { Beacon } from '../../providers/beacons-storage/beacons-storage';
+import { FinderProvider } from '../../providers/finder/finder';
 
 @IonicPage()
 @Component({
@@ -14,12 +11,27 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'search.html',
 })
 export class SearchPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+  distance: number = 1;
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    public finder: FinderProvider,
+    public ngzone: NgZone
+  ) { }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad SearchPage');
+    const beacon = <Beacon>this.navParams.get('beacon');
+
+    // this.finder.start(beacon).subscribe(distance => {
+    //   this.ngzone.run(() => {
+    //     this.distance = distance;
+    //   });
+    // });
+
+  }
+
+  ionViewWillLeave() {
+    // this.finder.stop();
   }
 
 }
