@@ -1,6 +1,7 @@
 page-search {
     .scroll-content {
         margin-top: 0 !important;
+        background-color: map-get($colors , 'primary');
     }
     ion-card {
         border-radius: 50% !important;

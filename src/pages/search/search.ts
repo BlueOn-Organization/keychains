@@ -12,7 +12,7 @@ import { FinderProvider } from '../../providers/finder/finder';
   templateUrl: 'search.html',
 })
 export class SearchPage {
-  distance: number = 1;
+  distance: number = 100;
   background: string;
 
   constructor(
@@ -33,10 +33,10 @@ export class SearchPage {
         if(distance < 0) {
           this.background = '#eff0f1';
         } else {
-          if (distance < 1 && this.distance > 1) {
-            this.dialogs.beep(1);
-          }
-
+          // if (distance < 1 && this.distance > 1) {
+          //   this.dialogs.beep(1);
+          // }
+          this.background = '#2575bb';
           this.distance = distance;
         }
       });
@@ -45,7 +45,7 @@ export class SearchPage {
   }
 
   ionViewWillLeave() {
-    // this.finder.stop();
+    this.finder.stop();
   }
 
 }

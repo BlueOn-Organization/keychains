@@ -12,6 +12,7 @@ export class DeviceSettingsPage {
   edit: boolean;
   device: Beacon;
   aux_copy_device: Beacon;
+  for_save = false;
 
   constructor(
     public navCtrl: NavController,
@@ -28,10 +29,11 @@ export class DeviceSettingsPage {
   guardar() {
     this.storage.save(this.device);
     this.navCtrl.pop();
+    this.for_save = true;
   }
 
   ionViewWillLeave() {
-    if (confirm('Cualquier cambio realizado se perdera!!')) {
+    if (!this.for_save && confirm('Cualquier cambio realizado se perdera!!')) {
       this.device = this.aux_copy_device;
       this.storage.loadStorage().then(() => this.navCtrl.pop());
     }

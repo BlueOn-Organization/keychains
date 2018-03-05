@@ -30,7 +30,7 @@
           </ion-list-header>
           <ion-item>
             <ion-label stacked>NOMBRE</ion-label>
-            <ion-input type="text" [(ngModel)]="device.nombre" placeholder="ingrese el nombre que le quiere asignar al dispositivo"></ion-input>
+            <ion-input type="text" [(ngModel)]="device.nombre" (ngChange)="edited()" placeholder="ingrese el nombre que le quiere asignar al dispositivo"></ion-input>
           </ion-item>
           <ion-item>
             <ion-label stacked>UID</ion-label>

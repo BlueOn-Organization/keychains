@@ -9,9 +9,9 @@
   <div id="distance"><span center>{{ distance }}</span></div>
 </ion-content> -->
 
-<ion-content [ngStyle]="{'background': backgorund}">
+<ion-content>
 
-  <ion-grid style="height: 100%">
+  <ion-grid style="height: 100%" [ngStyle]="{'background': backgorund}">
     <ion-row justify-content-center align-items-center style="height: 100%">
       <ion-card>
               <h1 [hidden]="distance < 1" no-padding no-margin>{{distance}} m</h1>
