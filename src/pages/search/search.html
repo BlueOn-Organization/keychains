@@ -9,13 +9,15 @@
   <div id="distance"><span center>{{ distance }}</span></div>
 </ion-content> -->
 
-<ion-content>
+<ion-content [ngStyle]="{'background': backgorund}">
 
   <ion-grid style="height: 100%">
     <ion-row justify-content-center align-items-center style="height: 100%">
       <ion-card>
-              <h1 no-padding no-margin>{{distance}} m</h1>
-              <h3 no-padding no-margin>distancia</h3>
+              <h1 [hidden]="distance < 1" no-padding no-margin>{{distance}} m</h1>
+              <h1 [hidden]="distance > 1" no-margin>menos de un metro</h1>
+
+              <h3 no-padding no-margin>distancia aproximada</h3>
       </ion-card>
     </ion-row>
   </ion-grid>

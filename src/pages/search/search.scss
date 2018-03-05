@@ -1,15 +1,12 @@
 page-search {
     .scroll-content {
         margin-top: 0 !important;
-
-    background-color: map-get($colors, 'primary');
     }
-
-        ion-card {
-            border-radius: 50% !important;
-            max-width: 200px !important;
-            height: 200px;
-            text-align: center;
-            padding-top: 70px;
-        }
+    ion-card {
+        border-radius: 50% !important;
+        max-width: 200px !important;
+        height: 200px;
+        text-align: center;
+        padding-top: 70px;
+    }
 }

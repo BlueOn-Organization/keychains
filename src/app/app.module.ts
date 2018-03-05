@@ -5,6 +5,7 @@ import { IonicStorageModule } from '@ionic/storage';
 
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
+import { Dialogs } from '@ionic-native/dialogs';
 import { BLE } from '@ionic-native/ble';
 import { IBeacon } from '@ionic-native/ibeacon';
 
@@ -34,6 +35,7 @@ import { FinderProvider } from '../providers/finder/finder';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
+    Dialogs,
     BLE,
     IBeacon,
     BeaconsStorage,
