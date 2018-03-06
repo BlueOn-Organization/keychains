@@ -19,6 +19,7 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AuthProvider } from '../providers/auth/auth';
+import { PublicitaryWatcher } from '../providers/publicitary-watcher/publicitary-watcher';
 
 const firebaseConfig = {
   apiKey: "AIzaSyDkG0xW9jkNCm0HnKCt6ddx5F-HyDUdulM",
@@ -57,7 +58,8 @@ const firebaseConfig = {
     IBeacon,
     BeaconsStorage,
     FinderProvider,
-    AuthProvider
+    AuthProvider,
+    PublicitaryWatcher
   ]
 })
 export class AppModule {}
