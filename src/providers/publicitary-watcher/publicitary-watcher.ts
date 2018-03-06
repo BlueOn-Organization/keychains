@@ -28,7 +28,7 @@ export class PublicitaryWatcher {
 
   private show() {
     this.storage.set('shown', true);
-    this.modalCtrl.create('ModalPage', {imagen: this.imagen});
+    this.modalCtrl.create('ModalPage', {imagen: this.imagen}).present();
   }
 
 }
