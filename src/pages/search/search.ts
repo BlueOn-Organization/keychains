@@ -24,12 +24,10 @@ export class SearchPage {
     public navCtrl: NavController,
     public navParams: NavParams,
     public finder: FinderProvider,
-    private wactcher: PublicitaryWatcher,
     private ngzone: NgZone,
     private dialogs: Dialogs
   ) {
     this.background = '#2575bb';
-    wactcher.start();
   }
 
   ionViewDidLoad() {
