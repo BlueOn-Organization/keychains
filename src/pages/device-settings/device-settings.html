@@ -15,27 +15,27 @@
 
 
 <ion-content>
-    <ion-list id="estado">
-        <ion-list-header>
-          <ion-icon name="bluetooth" item-start></ion-icon>
-          Estado
-          <h2 end>Conectado</h2>
-        </ion-list-header>
-      </ion-list>
+  <ion-list id="estado">
+    <ion-list-header>
+      <ion-icon name="bluetooth" item-start></ion-icon>
+      Estado
+      <h2 end>Conectado</h2>
+    </ion-list-header>
+  </ion-list>
 
-      <ion-list>
-          <ion-list-header>
-            <ion-icon name="document" item-start></ion-icon>
-            Registro
-          </ion-list-header>
-          <ion-item>
-            <ion-label stacked>NOMBRE</ion-label>
-            <ion-input type="text" [(ngModel)]="device.nombre" (ngChange)="edited()" placeholder="Nombre para el dispositivo"></ion-input>
-          </ion-item>
-          <ion-item>
-            <ion-label stacked>UID</ion-label>
-            <ion-input type="text" [(ngModel)]="device.uid" [readonly]="!create" placeholder="uuid unico del dispositivo"></ion-input>
-          </ion-item>
-          <ion-item></ion-item>
-        </ion-list>
+  <ion-list>
+    <ion-list-header>
+      <ion-icon name="document" item-start></ion-icon>
+      Registro
+    </ion-list-header>
+    <ion-item>
+      <ion-label stacked>NOMBRE</ion-label>
+      <ion-input type="text" [(ngModel)]="device.nombre" (ngChange)="edited()" placeholder="Nombre para el dispositivo"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>UID</ion-label>
+      <ion-input type="text" [(ngModel)]="device.uid" [readonly]="!create" placeholder="uuid unico del dispositivo"></ion-input>
+    </ion-item>
+    <ion-item></ion-item>
+  </ion-list>
 </ion-content>

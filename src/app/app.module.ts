@@ -13,13 +13,14 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ComponentsModule } from '../components/components.module';
 import { BeaconsStorage } from '../providers/beacons-storage/beacons-storage';
-import { FinderProvider } from '../providers/finder/finder';
+import { GetDistanceProvider } from '../providers/get-distance/get-distance';
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AuthProvider } from '../providers/auth/auth';
 import { PublicitaryWatcher } from '../providers/publicitary-watcher/publicitary-watcher';
+import { NearFinderProvider } from '../providers/near-finder/near-finder';
 
 const firebaseConfig = {
   apiKey: "AIzaSyDkG0xW9jkNCm0HnKCt6ddx5F-HyDUdulM",
@@ -57,9 +58,10 @@ const firebaseConfig = {
     BLE,
     IBeacon,
     BeaconsStorage,
-    FinderProvider,
+    GetDistanceProvider,
     AuthProvider,
-    PublicitaryWatcher
+    PublicitaryWatcher,
+    NearFinderProvider
   ]
 })
 export class AppModule {}

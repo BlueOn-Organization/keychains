@@ -4,7 +4,7 @@ import { IBeacon, BeaconRegion } from '@ionic-native/ibeacon';
 import { BLE } from '@ionic-native/ble';
 import { Beacon } from '../../providers/beacons-storage/beacons-storage';
 import { Dialogs } from '@ionic-native/dialogs';
-import { FinderProvider } from '../../providers/finder/finder';
+import { GetDistanceProvider } from '../../providers/get-distance/get-distance';
 import { PublicitaryWatcher } from '../../providers/publicitary-watcher/publicitary-watcher';
 
 @IonicPage()
@@ -23,7 +23,7 @@ export class SearchPage {
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
-    public finder: FinderProvider,
+    public finder: GetDistanceProvider,
     private ngzone: NgZone,
     private dialogs: Dialogs
   ) {
@@ -80,7 +80,6 @@ export class SearchPage {
           }
           this.distance = distance;
         }
-
       });
     });
 

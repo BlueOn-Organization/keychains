@@ -13,18 +13,27 @@
   <!-- <ion-fab right bottom (click)="add()" [hidden]="hideAdd">
     <button ion-fab><ion-icon name="add"></ion-icon></button>
   </ion-fab> -->
-  <ion-card color="primary" *ngFor="let device of detected_devices">
+  <!-- <ion-card color="primary" *ngFor="let device of detected_devices">
     <ion-item class="data" color="primary">
       <div item-content>
         <h2>{{device.name}}</h2>
         <p>{{device.id}}</p>
+        <p>{{device.uuid}}</p>
+        <p>distancia: {{device.accuracy}}m</p>
       </div>
       <button ion-button icon-only clear item-end color="light" (click)="connect(device)">
         <ion-icon ios="ios-radio-outline" md="md-wifi"></ion-icon>
       </button>
     </ion-item>
+  </ion-card> -->
+  <ion-card color="primary" *ngFor="let device of detected_beacons">
+    <ion-item class="data" color="primary">
+      <div item-content>
+        <pre>{{device |json}}</pre>
+      </div>
+    </ion-item>
   </ion-card>
-  <ion-fab [hidden]="searching" right bottom (click)="scan()">
+  <ion-fab [hidden]="searching" right bottom (click)="find()">
     <button ion-fab>
       <ion-icon name="add"></ion-icon>
     </button>

@@ -4,14 +4,8 @@ import { Observable } from 'rxjs/Observable';
 import { Beacon } from '../beacons-storage/beacons-storage';
 import { Subject } from 'rxjs/Subject';
 
-/*
-  Generated class for the FinderProvider provider.
-
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
-*/
 @Injectable()
-export class FinderProvider {
+export class GetDistanceProvider {
   private beaconRegion: BeaconRegion;
   private delegate: IBeaconDelegate;
 
