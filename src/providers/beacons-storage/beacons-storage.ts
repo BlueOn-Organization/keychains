@@ -1,10 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Storage } from '@ionic/storage'
-
-export interface Beacon {
-  nombre: string;
-  uid: string;
-}
+import { Beacon } from '../../app/beacon.model';
 
 @Injectable()
 export class BeaconsStorage {

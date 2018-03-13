@@ -20,7 +20,6 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AuthProvider } from '../providers/auth/auth';
 import { PublicitaryWatcher } from '../providers/publicitary-watcher/publicitary-watcher';
-import { NearFinderProvider } from '../providers/near-finder/near-finder';
 
 const firebaseConfig = {
   apiKey: "AIzaSyDkG0xW9jkNCm0HnKCt6ddx5F-HyDUdulM",
@@ -60,8 +59,7 @@ const firebaseConfig = {
     BeaconsStorage,
     GetDistanceProvider,
     AuthProvider,
-    PublicitaryWatcher,
-    NearFinderProvider
+    PublicitaryWatcher
   ]
 })
 export class AppModule {}

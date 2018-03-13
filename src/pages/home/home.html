@@ -9,10 +9,10 @@
 </ion-header>
 
 <ion-content padding>
-  <!-- <beacon *ngFor="let device of saved_devices" [device]="device" (saved)="finishEdit($event)"></beacon> -->
-  <!-- <ion-fab right bottom (click)="add()" [hidden]="hideAdd">
+  <beacon *ngFor="let device of saved_devices" [device]="device" (saved)="finishEdit($event)"></beacon> -->
+  <ion-fab right bottom (click)="add()" [hidden]="hideAdd">
     <button ion-fab><ion-icon name="add"></ion-icon></button>
-  </ion-fab> -->
+  </ion-fab>
   <!-- <ion-card color="primary" *ngFor="let device of detected_devices">
     <ion-item class="data" color="primary">
       <div item-content>
@@ -25,7 +25,7 @@
         <ion-icon ios="ios-radio-outline" md="md-wifi"></ion-icon>
       </button>
     </ion-item>
-  </ion-card> -->
+  </ion-card>
   <ion-card color="primary" *ngFor="let device of detected_beacons">
     <ion-item class="data" color="primary">
       <div item-content>
@@ -44,6 +44,6 @@
         <ion-spinner></ion-spinner>
       </div>
     </button>
-  </ion-fab>
+  </ion-fab> -->
   <p id="by">by: www.like-on.co</p>
 </ion-content>
