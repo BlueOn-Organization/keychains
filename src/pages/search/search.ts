@@ -2,10 +2,10 @@ import { Component, NgZone } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { IBeacon, BeaconRegion } from '@ionic-native/ibeacon';
 import { BLE } from '@ionic-native/ble';
-import { Beacon } from '../../providers/beacons-storage/beacons-storage';
 import { Dialogs } from '@ionic-native/dialogs';
 import { GetDistanceProvider } from '../../providers/get-distance/get-distance';
 import { PublicitaryWatcher } from '../../providers/publicitary-watcher/publicitary-watcher';
+import { Beacon } from '../../app/beacon.model';
 
 @IonicPage()
 @Component({

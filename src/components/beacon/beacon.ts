@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
-import { Beacon } from '../../providers/beacons-storage/beacons-storage';
 import { BeaconsStorage } from '../../providers/beacons-storage/beacons-storage';
 import { NavController } from 'ionic-angular';
+import { Beacon } from '../../app/beacon.model';
 
 @Component({
   selector: 'beacon',

@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { BeaconRegion, IBeacon, IBeaconDelegate } from '@ionic-native/ibeacon';
 import { Observable } from 'rxjs/Observable';
-import { Beacon } from '../beacons-storage/beacons-storage';
 import { Subject } from 'rxjs/Subject';
+import { Beacon } from '../../app/beacon.model';
 
 @Injectable()
 export class GetDistanceProvider {
