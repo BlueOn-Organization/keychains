@@ -5,9 +5,9 @@ import { IonicStorageModule } from '@ionic/storage';
 
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
-import { Dialogs } from '@ionic-native/dialogs';
 import { BLE } from '@ionic-native/ble';
 import { IBeacon } from '@ionic-native/ibeacon';
+import { QRScanner } from '@ionic-native/qr-scanner';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -19,7 +19,6 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AuthProvider } from '../providers/auth/auth';
-import { PublicitaryWatcher } from '../providers/publicitary-watcher/publicitary-watcher';
 
 const firebaseConfig = {
   apiKey: "AIzaSyDkG0xW9jkNCm0HnKCt6ddx5F-HyDUdulM",
@@ -53,13 +52,12 @@ const firebaseConfig = {
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    Dialogs,
     BLE,
     IBeacon,
+    QRScanner,
     BeaconsStorage,
     GetDistanceProvider,
-    AuthProvider,
-    PublicitaryWatcher
+    AuthProvider
   ]
 })
 export class AppModule {}

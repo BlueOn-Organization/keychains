@@ -1,10 +1,6 @@
 import { Component, NgZone } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { IBeacon, BeaconRegion } from '@ionic-native/ibeacon';
-import { BLE } from '@ionic-native/ble';
-import { Dialogs } from '@ionic-native/dialogs';
 import { GetDistanceProvider } from '../../providers/get-distance/get-distance';
-import { PublicitaryWatcher } from '../../providers/publicitary-watcher/publicitary-watcher';
 import { Beacon } from '../../app/beacon.model';
 
 @IonicPage()
@@ -24,16 +20,17 @@ export class SearchPage {
     public navCtrl: NavController,
     public navParams: NavParams,
     public finder: GetDistanceProvider,
-    private ngzone: NgZone,
-    private dialogs: Dialogs
+    private ngzone: NgZone
   ) {
     this.background = '#2575bb';
   }
 
   ionViewDidLoad() {
-
     const beacon = <Beacon>this.navParams.get('beacon');
+    // this.find(beacon);
+  }
 
+  find(beacon: Beacon) {
     this.finder.start(beacon).subscribe(distance => {
       console.log(distance);
 
@@ -48,7 +45,7 @@ export class SearchPage {
           this.negativecontroller--;
         } else {
           if (this.fuera) {
-            this.dialogs.beep(1);
+            // this.dialogs.beep(1);
             this.fuera = false;
           }
           this.negativecontroller = 0;
@@ -82,7 +79,6 @@ export class SearchPage {
         }
       });
     });
-
   }
 
   ionViewWillLeave() {

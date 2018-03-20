@@ -21,14 +21,14 @@ export class MyApp {
       splashScreen.hide();
     });
 
-    storage.get('loginOn').then( result => {
-      console.log('loginOn ' + result)
-      if (result) {
+    // storage.get('loginOn').then( result => {
+    //   console.log('loginOn ' + result)
+    //   if (result) {
         this.rootPage = HomePage;
-      } else {
-        this.rootPage = 'LoginPage';
-      }
-    });
+    //   } else {
+    //     this.rootPage = 'LoginPage';
+    //   }
+    // });
   }
 }
 
