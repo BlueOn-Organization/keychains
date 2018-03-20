@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, AlertController } from 'ionic-angular';
 import { BeaconsStorage } from '../../providers/beacons-storage/beacons-storage';
 import { Beacon } from '../../app/beacon.model';
+import { IBeacon } from '@ionic-native/ibeacon';
 
 @Component({
   selector: 'page-home',
@@ -10,15 +11,37 @@ import { Beacon } from '../../app/beacon.model';
 export class HomePage {
   saved_devices: Beacon[] = []
 
-  constructor(public navCtrl: NavController, private storage: BeaconsStorage) {}
+  constructor(
+    public navCtrl: NavController,
+    private storage: BeaconsStorage,
+    private ibeacon: IBeacon,
+    private alert: AlertController
+  ) {}
 
   ionViewDidLoad() {
-    this.storage.loadStorage().then((beacons) => this.saved_devices = beacons )
+    this.checkBluetoothEnabled()
+  }
+
+  checkBluetoothEnabled() {
+    this.ibeacon.isBluetoothEnabled().then(enabled => {
+      if (enabled) {
+        this.storage.loadStorage().then((beacons) => this.saved_devices = beacons)
+      } else {
+        this.alert.create({
+          enableBackdropDismiss: false,
+          subTitle: 'el Bluetoot esta desactivado, debes activarlo para el correcto funcionamiento de la applicacion',
+          buttons: [{
+            text: 'Verificar',
+            role: 'cancel',
+            handler: () => this.checkBluetoothEnabled()
+          }]
+        }).present();
+      }
+    });
   }
 
   add() {
-    let beacon = <Beacon>{};
-    this.navCtrl.push('BleListPage');
+    this.navCtrl.push('NewDevicePage');
   }
 
 }

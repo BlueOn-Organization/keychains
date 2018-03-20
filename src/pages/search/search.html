@@ -4,13 +4,13 @@
   </ion-navbar>
 </ion-header>
 <ion-content>
-  <ion-grid [ngStyle]="{'background-color': background}" id="rippler">
-    <ion-row justify-content-center align-items-center>
+  <ion-grid [ngStyle]="{'background-color': background}">
+    <ion-row justify-content-center align-items-center >
       <ion-card>
         <h1 no-padding no-margin>{{label}}</h1>
         <h3 no-padding no-margin>{{label2}}</h3>
-        <ion-spinner name="ripple" class="spinner-assertive"></ion-spinner>
       </ion-card>
+      <span class="ripple"></span>
     </ion-row>
   </ion-grid>
 </ion-content>
