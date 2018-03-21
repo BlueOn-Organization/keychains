@@ -11,7 +11,7 @@ import { Beacon } from '../../app/beacon.model';
 export class SearchPage {
   distance: number = -1;
   background: string;
-  label: string = 'No se';
+  label: string = 'Buscando...';
   label2: string = '';
   fuera: boolean;
   negativecontroller: number = 0;
