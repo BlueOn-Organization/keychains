@@ -1,6 +1,6 @@
 <ion-header no-border>
   <ion-navbar transparent>
-    <ion-title color="light">search</ion-title>
+    <ion-title color="light"></ion-title>
   </ion-navbar>
 </ion-header>
 <ion-content>
@@ -10,7 +10,7 @@
         <h1 no-padding no-margin>{{label}}</h1>
         <h3 no-padding no-margin>{{label2}}</h3>
       </ion-card>
-      <span class="ripple"></span>
+      <ion-spinner name="crescent" duration="4000" [hidden]="fuera"></ion-spinner>
     </ion-row>
   </ion-grid>
 </ion-content>
