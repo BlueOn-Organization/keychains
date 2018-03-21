@@ -27,7 +27,7 @@ export class SearchPage {
 
   ionViewDidLoad() {
     const beacon = <Beacon>this.navParams.get('beacon');
-    // this.find(beacon);
+    this.find(beacon);
   }
 
   find(beacon: Beacon) {
