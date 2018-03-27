@@ -22,12 +22,16 @@ page-home {
     flex-direction: column;
     align-content: stretch;
     padding-top: 5px;
-    background-image: url('../assets/imgs/1278.jpg');
-    background-size: cover;
+    background-image: url('../assets/imgs/bgfond.jpg');
+    background-size: 100% 100%;
   }
 
   #by{
     position: fixed;
     bottom: 10px;
+  }
+
+  ion-navbar{
+    color: #990066 !important;
   }
 }

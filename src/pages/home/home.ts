@@ -19,7 +19,7 @@ export class HomePage {
   ) {}
 
   ionViewDidLoad() {
-    this.checkBluetoothEnabled()
+   // this.checkBluetoothEnabled()
   }
 
   checkBluetoothEnabled() {
