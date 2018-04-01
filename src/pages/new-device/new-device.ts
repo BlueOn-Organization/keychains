@@ -73,9 +73,24 @@ export class NewDevicePage {
   }
 
   private handleSuccessfulScan(contents: string): void {
+    if (this.validUuid(contents)) {
+      this.saveDevice(contents);
+    } else {
+      const alert = this.alertCtrl.create({subTitle: contents + ' no es una uuid valida'});
+      alert.present();
+      alert.onDidDismiss(() => this.scan());
+    }
+  }
+
+  private validUuid (content: string) {
+    const regx = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i
+      return regx.test(content)
+  }
+
+  private saveDevice(uuid: string) {
     let prompt = this.alertCtrl.create({
       title: 'Agregar',
-      subTitle: 'dispositivo detectado: ' + contents,
+      subTitle: 'dispositivo detectado:',
       enableBackdropDismiss: false,
       inputs: [
         {
@@ -100,7 +115,7 @@ export class NewDevicePage {
             } else {
               this.storage.save(<Beacon>{
                 nombre: data.name,
-                uid: contents
+                uid: uuid
               });
               this.navCtrl.pop();
             }

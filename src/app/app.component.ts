@@ -15,20 +15,22 @@ export class MyApp {
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen,storage: Storage) {
     platform.ready().then(() => {
-      // Okay, so the platform is ready and our plugins are available.
-      // Here you can do any higher level native things you might need.
-      statusBar.styleDefault();
+      statusBar.overlaysWebView(false);
+      statusBar.backgroundColorByHexString('#990066');
+
       splashScreen.hide();
     });
-
-    // storage.get('loginOn').then( result => {
-    //   console.log('loginOn ' + result)
-    //   if (result) {
+    
+    storage.get('introShown').then( result => {
+      console.log('introShown ' + result)
+      if (result) {
         this.rootPage = HomePage;
-    //   } else {
-    //     this.rootPage = 'LoginPage';
-    //   }
-    // });
+      } else {
+        this.rootPage = 'IntroPage';
+        storage.set('introShown', true);
+      }
+    });
+
   }
 }
 

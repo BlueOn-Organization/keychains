@@ -1,6 +1,14 @@
 page-home {
-  ion-header .toolbar-title {
-    padding: 0 !important;
+  ion-header{ 
+    box-shadow: 0 2px 6px 0 rgba(34, 34, 34, 0.6), 0 4px 5px rgba(0, 0, 0, 0.1);
+    .toolbar-title {
+      padding: 0 !important;
+      color: white;
+    }
+    
+    &::after {
+      width: 0 !important;
+    }
   }
 
   #name {
@@ -31,7 +39,7 @@ page-home {
     bottom: 10px;
   }
 
-  ion-navbar{
-    color: #990066 !important;
+  ion-navbar .toolbar-background{
+    background-color: $header-color !important;
   }
 }
