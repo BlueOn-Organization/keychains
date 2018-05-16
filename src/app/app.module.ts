@@ -21,12 +21,12 @@ import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AuthProvider } from '../providers/auth/auth';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDkG0xW9jkNCm0HnKCt6ddx5F-HyDUdulM",
-  authDomain: "blue-on.firebaseapp.com",
-  databaseURL: "https://blue-on.firebaseio.com",
-  projectId: "blue-on",
-  storageBucket: "blue-on.appspot.com",
-  messagingSenderId: "88739997891"
+  apiKey: "AIzaSyAq6P4eZJLp6cj1_zseF4N8Ouxj5kFZSWQ",
+  authDomain: "blueon-dbf11.firebaseapp.com",
+  databaseURL: "https://blueon-dbf11.firebaseio.com",
+  projectId: "blueon-dbf11",
+  storageBucket: "blueon-dbf11.appspot.com",
+  messagingSenderId: "271111022906"
 };
 
 @NgModule({
@@ -37,7 +37,10 @@ const firebaseConfig = {
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    IonicStorageModule.forRoot(),
+    IonicStorageModule.forRoot({
+      name: '__mydb',
+      driverOrder: ['indexeddb', 'sqlite', 'websql']
+    }),
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireAuthModule,
     AngularFirestoreModule.enablePersistence(),

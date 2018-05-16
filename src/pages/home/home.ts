@@ -29,7 +29,7 @@ export class HomePage {
       } else {
         this.alert.create({
           enableBackdropDismiss: false,
-          subTitle: 'el Bluetoot esta desactivado, debes activarlo para el correcto funcionamiento de la applicacion',
+          subTitle: 'El Bluetooth está desactivado, debes activarlo para poder continuar.',
           buttons: [{
             text: 'Verificar',
             role: 'cancel',

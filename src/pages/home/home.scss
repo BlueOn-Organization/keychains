@@ -1,11 +1,11 @@
 page-home {
-  ion-header{ 
+  ion-header{
     box-shadow: 0 2px 6px 0 rgba(34, 34, 34, 0.6), 0 4px 5px rgba(0, 0, 0, 0.1);
     .toolbar-title {
       padding: 0 !important;
       color: white;
     }
-    
+
     &::after {
       width: 0 !important;
     }
@@ -36,10 +36,17 @@ page-home {
 
   #by{
     position: fixed;
-    bottom: 10px;
+    bottom: 5px;
   }
 
   ion-navbar .toolbar-background{
     background-color: $header-color !important;
+  }
+
+  #imag{
+    position: fixed;
+    bottom: 35px;
+    height: 25px;
+    width: 140px;
   }
 }

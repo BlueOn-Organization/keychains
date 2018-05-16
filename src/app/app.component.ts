@@ -20,14 +20,15 @@ export class MyApp {
 
       splashScreen.hide();
     });
-    
+
     storage.get('introShown').then( result => {
-      console.log('introShown ' + result)
+      console.log('introShown' + result)
       if (result) {
         this.rootPage = HomePage;
       } else {
-        this.rootPage = 'IntroPage';
         storage.set('introShown', true);
+        this.rootPage = 'LoginPage';
+
       }
     });
 

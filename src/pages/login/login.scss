@@ -1,4 +1,10 @@
 page-login {
+  box-shadow: 0 2px 6px 0 rgba(34, 34, 34, 0.6), 0 4px 5px rgba(0, 0, 0, 0.1);
+  .toolbar-title {
+    padding: 0 !important;
+    color: white;
+  }
+
   .button{
     margin-top: 10px;
   }
@@ -8,8 +14,8 @@ page-login {
     flex-direction: column;
     align-content: stretch;
     padding-top: 5px;
-    background-image: url('../assets/imgs/login.png');
-    background-size: cover;
+    background-image: url('../assets/imgs/bgfond.jpg');
+    background-size: 100% 100%;
   }
 
   #name {
@@ -29,6 +35,18 @@ page-login {
 
   #by{
     position: fixed;
-    bottom: 10px;
+    bottom: 5px;
+  }
+
+
+  #imag{
+    position: fixed;
+    bottom: 35px;
+    height: 25px;
+    width: 140px;
+  }
+
+  ion-navbar .toolbar-background{
+    background-color: $header-color !important;
   }
 }

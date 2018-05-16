@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { AngularFireAuth } from 'angularfire2/auth';
 import {HomePage} from '../home/home';
 import {IntroPage} from '../intro/intro';
@@ -30,7 +30,8 @@ export class LoginPage {
     public navCtrl: NavController,
     private afAuth: AngularFireAuth,
     public navParams: NavParams,
-    public storage: Storage
+    public storage: Storage,
+    public alertCtrl : AlertController
     ) {
 
   }
@@ -46,11 +47,43 @@ export class LoginPage {
       );
       if (result) {
         this.storage.set('loginOn', true);
-        this.navCtrl.setRoot('IntroPage');
+        //this.navCtrl.setRoot('IntroPage');
+        this.navCtrl.setRoot(HomePage, {}, {
+          animate: true,
+          direction: 'forward'
+        });
       }
-    } catch (e) {
-      console.error(e);
+    } catch (err) {
+      let alert = this.alertCtrl.create({
+        title: 'Error',
+        subTitle: err.message,
+        buttons: ['Aceptar']
+      });
+      alert.present();
     }
   }
+
+  signin(){
+    this.afAuth.auth.signInWithEmailAndPassword(this.user.email,this.user.password)
+      .then((user) => {
+        // El usuario se ha creado correctamente
+        this.storage.set('loginOn', true);
+        //this.navCtrl.setRoot('IntroPage');
+        this.navCtrl.setRoot(HomePage, {}, {
+          animate: true,
+          direction: 'forward'
+        });
+      })
+      .catch(err=>{
+        let alert = this.alertCtrl.create({
+          title: 'Error',
+          subTitle: err.message,
+          buttons: ['Aceptar']
+        });
+        alert.present();
+      })
+
+  }
+
 
 }
