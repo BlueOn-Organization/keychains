@@ -26,7 +26,6 @@ export class MyApp {
       if (result) {
         this.rootPage = HomePage;
       } else {
-        storage.set('introShown', true);
         this.rootPage = 'LoginPage';
 
       }

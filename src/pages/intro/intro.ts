@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {HomePage} from "../home/home";
+import {Storage} from "@ionic/storage";
+
 
 
 export interface Slide {
@@ -26,11 +28,12 @@ export class IntroPage {
   showSkip = false;
   dir: string = 'ltr';
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public storage: Storage) {
     this.slides = [];
   }
 
   startApp() {
+    this.storage.set('introShown', true);
     this.navCtrl.setRoot(HomePage, {}, {
       animate: true,
       direction: 'forward'

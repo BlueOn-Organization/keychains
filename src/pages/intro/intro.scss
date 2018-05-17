@@ -1,4 +1,13 @@
 page-intro {
+  box-shadow: 0 2px 6px 0 rgba(34, 34, 34, 0.6), 0 4px 5px rgba(0, 0, 0, 0.1);
+  .toolbar-title {
+    padding: 0 !important;
+    color: white;
+  }
+
+  ion-navbar .toolbar-background{
+    background-color: $header-color !important;
+  }
 
   #name {
     position: absolute;
@@ -21,7 +30,7 @@ page-intro {
   }
   #btn{
     position: fixed;
-    bottom: 80px;
+    bottom: 20px;
     left: 40px;
     color: white;
 
@@ -38,8 +47,10 @@ page-intro {
   .slide-title {
     margin-top: 2.8rem;
   }
-
-
+  #slid{
+    width: 100%;
+    height: 100%;
+  }
 
 
   b {
@@ -57,11 +68,6 @@ page-intro {
     }
   }
 
-  #version-label {
-    position: absolute;
-    bottom: 50px;
-    width: 100%;
-  }
 
 
 }

@@ -48,7 +48,7 @@ export class LoginPage {
       if (result) {
         this.storage.set('loginOn', true);
         //this.navCtrl.setRoot('IntroPage');
-        this.navCtrl.setRoot(HomePage, {}, {
+        this.navCtrl.setRoot('IntroPage', {}, {
           animate: true,
           direction: 'forward'
         });
@@ -69,7 +69,7 @@ export class LoginPage {
         // El usuario se ha creado correctamente
         this.storage.set('loginOn', true);
         //this.navCtrl.setRoot('IntroPage');
-        this.navCtrl.setRoot(HomePage, {}, {
+        this.navCtrl.setRoot('IntroPage', {}, {
           animate: true,
           direction: 'forward'
         });
