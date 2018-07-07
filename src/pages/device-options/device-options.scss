@@ -4,6 +4,21 @@ page-device-options {
         overflow: hidden;
     }
 
+    ion-header {
+        .toolbar-title{
+            padding: 0 !important;
+            color: white;
+        }
+
+        .back-button {
+            color: white;
+        }
+    
+        .toolbar-background{
+            background-color: $header-color !important;
+        }
+    }
+
     ion-item{
         padding-left: 0 !important;
 
