@@ -1,0 +1,46 @@
+<ion-header no-border>
+  <ion-navbar transparent>
+    <ion-title color="light">Opciones del dispositivo</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+
+    <ion-item class="imput-has-focus">
+      <ion-label color="primary" stacked>Renombrar el dispositivo</ion-label>
+      <ion-input [(ngModel)]="beacon.nombre" placeholder="nuevo nombre"></ion-input>
+    </ion-item>
+
+    <br>
+    <br>
+    <br>
+
+    <ion-label color="primary" stacked >Seleccione el tiempo de alerta</ion-label>
+    <br>
+    <!-- <ion-item> -->
+        <ion-segment [(ngModel)]="beacon.tick" mode="ios" id="timer-tick">
+            <ion-segment-button outline value="1" id="a">1s</ion-segment-button>
+            <ion-segment-button outline value="5" id="b">5s</ion-segment-button>
+            <ion-segment-button outline value="30" id="c">30s</ion-segment-button>
+            <ion-segment-button outline value="60" id="d">1m</ion-segment-button>
+            <ion-segment-button outline value="1800" id="f">30m</ion-segment-button>
+          </ion-segment>
+    <!-- </ion-item> -->
+
+    <br>
+    <br>
+    <br>
+
+    <button ion-button icon-start block outline color="primary" (click)="guardar()">
+      <ion-icon name="done-all"></ion-icon>
+      Guardar cambios
+    </button>
+    <br>
+    <button ion-button icon-start block outline color="danger" (click)="eliminar()">
+      <ion-icon name="trash"></ion-icon>
+      Eliminar
+    </button>
+
+  </ion-list>
+</ion-content>

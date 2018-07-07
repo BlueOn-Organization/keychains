@@ -4,4 +4,5 @@ export interface Beacon {
   uid: string;
   major: number;
   minor: number;
+  tick: number;
 }
