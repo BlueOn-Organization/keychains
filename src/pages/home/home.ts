@@ -3,6 +3,7 @@ import { NavController, AlertController } from 'ionic-angular';
 import { BeaconsStorage } from '../../providers/beacons-storage/beacons-storage';
 import { Beacon } from '../../app/beacon.model';
 import { IBeacon } from '@ionic-native/ibeacon';
+import { BeaconStalkerProvider } from '../../providers/beacon-stalker/beacon-stalker';
 
 @Component({
   selector: 'page-home',
@@ -13,19 +14,19 @@ export class HomePage {
 
   constructor(
     public navCtrl: NavController,
-    private storage: BeaconsStorage,
+    private beaconsStorage: BeaconsStorage,
     private ibeacon: IBeacon,
     private alert: AlertController
   ) {}
 
   ionViewDidLoad() {
-   this.checkBluetoothEnabled()
+    this.getBeacons();
   }
 
   checkBluetoothEnabled() {
     this.ibeacon.isBluetoothEnabled().then(enabled => {
       if (enabled) {
-        this.storage.loadStorage().then((beacons) => this.saved_devices = beacons)
+        this.getBeacons();
       } else {
         this.alert.create({
           enableBackdropDismiss: false,
@@ -40,8 +41,11 @@ export class HomePage {
     });
   }
 
+  getBeacons() {
+    this.beaconsStorage.load().then((beacons) => this.saved_devices = beacons);
+  }
+
   add() {
     this.navCtrl.push('NewDevicePage');
   }
-
 }

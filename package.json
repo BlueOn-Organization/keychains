@@ -20,9 +20,11 @@
     "@angular/http": "5.0.3",
     "@angular/platform-browser": "5.0.3",
     "@angular/platform-browser-dynamic": "5.0.3",
+    "@ionic-native/background-mode": "^4.9.0",
     "@ionic-native/ble": "^4.5.3",
     "@ionic-native/core": "4.4.0",
     "@ionic-native/ibeacon": "^4.5.3",
+    "@ionic-native/local-notifications": "^4.9.0",
     "@ionic-native/qr-scanner": "^4.5.3",
     "@ionic-native/splash-screen": "4.4.0",
     "@ionic-native/status-bar": "4.4.0",
@@ -31,12 +33,15 @@
     "com.unarin.cordova.beacon": "~3.6.0",
     "cordova": "^8.0.0",
     "cordova-android": "6.3.0",
+    "cordova-plugin-background-mode": "^0.7.2",
+    "cordova-plugin-badge": "^0.8.7",
     "cordova-plugin-ble-central": "^1.1.4",
     "cordova-plugin-compat": "^1.2.0",
     "cordova-plugin-device": "^2.0.1",
-    "cordova-plugin-ibeacon": "^3.6.0",
+    "cordova-plugin-ibeacon": "^3.6.1",
     "cordova-plugin-ionic-keyboard": "^2.0.5",
     "cordova-plugin-ionic-webview": "^1.1.16",
+    "cordova-plugin-local-notification": "^0.9.0-beta.2",
     "cordova-plugin-qrscanner": "^2.5.0",
     "cordova-plugin-splashscreen": "^5.0.2",
     "cordova-plugin-statusbar": "^2.4.1",
@@ -57,7 +62,6 @@
   "description": "An Ionic project",
   "cordova": {
     "plugins": {
-      "com.unarin.cordova.beacon": {},
       "cordova-plugin-whitelist": {},
       "cordova-plugin-device": {},
       "cordova-plugin-splashscreen": {},
@@ -65,7 +69,10 @@
       "cordova-plugin-ionic-keyboard": {},
       "cordova-plugin-ble-central": {},
       "cordova-plugin-qrscanner": {},
-      "cordova-plugin-statusbar": {}
+      "cordova-plugin-statusbar": {},
+      "com.unarin.cordova.beacon": {},
+      "cordova-plugin-local-notification": {},
+      "cordova-plugin-background-mode": {}
     },
     "platforms": [
       "android"

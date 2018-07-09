@@ -12,7 +12,7 @@ export class BeaconsStorage {
     this.loaded = false;
   }
 
-  loadStorage(): Promise<any> {
+  load(): Promise<any> {
     return this.storage.get('beacons').then(beacons => {
       this.loaded = true;
       this.beacons = beacons ? beacons : [];
@@ -27,7 +27,7 @@ export class BeaconsStorage {
   }
 
   save(b: Beacon) {
-    const index = this.findIndex(b.uid);
+    const index = this.findIndex(b.uuid);
     if (index != -1) {
       this.beacons[index] = b;
     } else {
@@ -37,7 +37,7 @@ export class BeaconsStorage {
   }
 
   delete(b: Beacon) {
-    const index = this.findIndex(b.uid);
+    const index = this.findIndex(b.uuid);
     if (index != -1) {
       this.beacons.splice(index, 1);
       this.overrieStorage();
@@ -46,8 +46,8 @@ export class BeaconsStorage {
     }
   }
 
-  findIndex(uid: string) {
-    return this.beacons.findIndex(beacon => beacon.uid === uid);
+  findIndex(uuid: string) {
+    return this.beacons.findIndex(beacon => beacon.uuid === uuid);
   }
 
   private overrieStorage() {

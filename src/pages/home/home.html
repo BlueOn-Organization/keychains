@@ -1,50 +1,25 @@
 <ion-header>
-  <ion-navbar >
+  <ion-navbar>
     <ion-title>
       <img alt="logo" height="40" id="logo" src="assets/imgs/logo.png">
       <span id="name">Blue-On Localizador</span>
-      <img alt="logo" height="40" id="like" src="assets/imgs/like.png">
+      <!-- <img alt="logo" height="40" id="like" src="assets/imgs/like.png"> -->
     </ion-title>
+    <ion-buttons end>
+      <notification-toggle></notification-toggle>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
   <beacon *ngFor="let device of saved_devices" [device]="device" (saved)="finishEdit($event)"></beacon>
+
   <ion-fab right bottom (click)="add()" [hidden]="hideAdd">
-    <button ion-fab><ion-icon name="add"></ion-icon></button>
-  </ion-fab>
-  <!-- <ion-card color="primary" *ngFor="let device of detected_devices">
-    <ion-item class="data" color="primary">
-      <div item-content>
-        <h2>{{device.name}}</h2>
-        <p>{{device.id}}</p>
-        <p>{{device.uuid}}</p>
-        <p>distancia: {{device.accuracy}}m</p>
-      </div>
-      <button ion-button icon-only clear item-end color="light" (click)="connect(device)">
-        <ion-icon ios="ios-radio-outline" md="md-wifi"></ion-icon>
-      </button>
-    </ion-item>
-  </ion-card>
-  <ion-card color="primary" *ngFor="let device of detected_beacons">
-    <ion-item class="data" color="primary">
-      <div item-content>
-        <pre>{{device |json}}</pre>
-      </div>
-    </ion-item>
-  </ion-card>
-  <ion-fab [hidden]="searching" right bottom (click)="find()">
     <button ion-fab>
       <ion-icon name="add"></ion-icon>
     </button>
   </ion-fab>
-  <ion-fab right bottom *ngIf="searching">
-    <button ion-fab>
-      <div class="spinner-container">
-        <ion-spinner></ion-spinner>
-      </div>
-    </button>
-  </ion-fab> -->
+
   <img id="imag" src="assets/imgs/log.jpeg" alt="">
   <p id="by">by: www.like-on.co</p>
 </ion-content>

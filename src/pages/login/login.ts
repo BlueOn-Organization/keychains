@@ -64,24 +64,24 @@ export class LoginPage {
   }
 
   signin(){
-    this.afAuth.auth.signInWithEmailAndPassword(this.user.email,this.user.password)
-      .then((user) => {
-        // El usuario se ha creado correctamente
-        this.storage.set('loginOn', true);
-        //this.navCtrl.setRoot('IntroPage');
+    // this.afAuth.auth.signInWithEmailAndPassword(this.user.email,this.user.password)
+    //   .then((user) => {
+    //     // El usuario se ha creado correctamente
+    //     this.storage.set('loginOn', true);
+    //     //this.navCtrl.setRoot('IntroPage');
         this.navCtrl.setRoot('IntroPage', {}, {
           animate: true,
           direction: 'forward'
         });
-      })
-      .catch(err=>{
-        let alert = this.alertCtrl.create({
-          title: 'Error',
-          subTitle: err.message,
-          buttons: ['Aceptar']
-        });
-        alert.present();
-      })
+      // })
+      // .catch(err=>{
+      //   let alert = this.alertCtrl.create({
+      //     title: 'Error',
+      //     subTitle: err.message,
+      //     buttons: ['Aceptar']
+      //   });
+      //   alert.present();
+      // })
 
   }
 

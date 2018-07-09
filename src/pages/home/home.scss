@@ -6,30 +6,35 @@ page-home {
       color: white;
     }
 
+    .toolbar-background{
+      background-color: $header-color !important;
+    }
+
     &::after {
       width: 0 !important;
     }
+
+    #name {
+      position: absolute;
+      left: 55px;
+      top: 10px;
+    }
+  
+    #logo {
+      display: inline-block
+    }
+  
+    #like {
+      position: absolute;
+      right: 0;
+    }
   }
 
-  #name {
-    position: absolute;
-    left: 55px;
-    top: 10px;
-  }
-
-  #logo {
-    display: inline-block
-  }
-
-  #like {
-    position: absolute;
-    right: 0;
-  }
   .scroll-content{
     display: flex;
     flex-direction: column;
     align-content: stretch;
-    padding-top: 5px;
+    // padding-top: 5px !important;
     background-image: url('../assets/imgs/bgfond.jpg');
     background-size: 100% 100%;
   }
@@ -37,16 +42,22 @@ page-home {
   #by{
     position: fixed;
     bottom: 5px;
-  }
-
-  ion-navbar .toolbar-background{
-    background-color: $header-color !important;
-  }
+  }  
 
   #imag{
     position: fixed;
     bottom: 35px;
     height: 25px;
     width: 140px;
+  }
+
+  #notification-toggle {
+    background-color: transparent;
+    color: map-get($colors, 'primary');
+    font-weight: 600;
+    text-align: right;
+    .item-inner {
+      border: none !important;
+    }
   }
 }
