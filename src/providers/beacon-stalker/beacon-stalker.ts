@@ -21,7 +21,7 @@ export class BeaconStalkerProvider {
 
   watch() {
     console.log(`Start motirong beacons [${this.beacons.length}]`);
-    this.beacons.filter(beacon => beacon.tick)
+    this.beacons.filter(beacon => beacon.tick > 0)
       .forEach((beacon, index) => this.findDevice(beacon, index));
   }
 
