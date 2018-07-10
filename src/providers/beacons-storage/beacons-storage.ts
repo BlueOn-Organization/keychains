@@ -14,6 +14,7 @@ export class BeaconsStorage {
 
   load(): Promise<any> {
     return this.storage.get('beacons').then(beacons => {
+      console.info('The storage has been loaded');
       this.loaded = true;
       this.beacons = beacons ? beacons : [];
 
@@ -22,7 +23,8 @@ export class BeaconsStorage {
   }
 
   get list(): Beacon[] {
-    !this.loaded && console.warn('The storage has not been loaded');
+    this.loaded || console.warn('The storage has not been loaded');
+    console.info(`Returned the beacons list of lenth ${this.beacons.length}`);
     return this.beacons;
   }
 

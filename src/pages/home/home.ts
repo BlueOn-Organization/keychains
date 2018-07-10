@@ -20,7 +20,7 @@ export class HomePage {
   ) {}
 
   ionViewDidLoad() {
-    this.getBeacons();
+    this.checkBluetoothEnabled();
   }
 
   checkBluetoothEnabled() {

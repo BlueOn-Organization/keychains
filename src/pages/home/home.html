@@ -5,7 +5,7 @@
       <span id="name">Blue-On Localizador</span>
       <!-- <img alt="logo" height="40" id="like" src="assets/imgs/like.png"> -->
     </ion-title>
-    <ion-buttons end>
+    <ion-buttons end *ngIf="saved_devices.length">
       <notification-toggle></notification-toggle>
     </ion-buttons>
   </ion-navbar>

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { BackgroundMode, BackgroundModeConfiguration } from '@ionic-native/background-mode';
 import { Storage } from '@ionic/storage';
+import { BeaconStalkerProvider } from '../../providers/beacon-stalker/beacon-stalker';
 
 @Component({
   selector: 'notification-toggle',
@@ -11,9 +12,10 @@ export class NotificationToggleComponent {
 
   constructor(
     private backgroundMode: BackgroundMode,
-    private storage: Storage
+    private storage: Storage,
+    private stalker: BeaconStalkerProvider
   ) {
-    this.storage.get('beacon-watching').then(enabled => enabled && this.enabledBackground());
+    this.storage.get('beacon-watching').then(enabled => enabled && this.on());
 
     backgroundMode.setDefaults({
       title: 'Monitor de dispositivos activo',
@@ -22,28 +24,23 @@ export class NotificationToggleComponent {
   }
 
   on() {
-    this.storage.set('beacon-watching', true);
-    this.enabledBackground()
+    this.storage.set('beacon-watching', true).then(()=>{
+      this.enabled = true;
+      this.backgroundMode.enable();
+      this.backgroundMode.overrideBackButton();
+      this.startMonitoring();
+    });
   }
 
   off() {
-    this.storage.set('beacon-watching', false);
-    this.disableBackground();
-  }
-
-  enabledBackground() {
-    this.enabled = true;
-    this.backgroundMode.enable();
-    this.backgroundMode.overrideBackButton();
-  }
-
-  disableBackground() {
-    this.enabled = false;
-    this.backgroundMode.disable();
+    this.storage.set('beacon-watching', false).then(()=>{
+      this.enabled = false;
+      this.backgroundMode.disable();
+    });
   }
 
   startMonitoring() {
-    
+    this.stalker.watch();
   }
 
 }
