@@ -9,6 +9,7 @@ import { Storage } from '@ionic/storage';
 export class BeaconStalkerProvider {
   beacons: Beacon[];
   beacon_watching: boolean;
+  workers: number[] = [];
 
   constructor(
     private localNotifications: LocalNotifications,
@@ -20,17 +21,23 @@ export class BeaconStalkerProvider {
   }
 
   watch() {
+    this.unWatch();
     console.log(`Start motirong beacons [${this.beacons.length}]`);
     this.beacons.filter(beacon => beacon.tick > 0)
       .forEach((beacon, index) => this.findDevice(beacon, index));
   }
 
+  unWatch() {
+    console.log(this.workers)
+    this.workers.forEach(element => clearTimeout(element));
+    console.log(this.workers)
+  }
+
   findDevice(beacon: Beacon, index: number) {
     this.storage.get('beacon-watching').then(enabled => {
-      console.log(enabled);
       if (enabled) {
         console.log(`${beacon.nombre} is spected on ${beacon.tick}`);
-        setTimeout(() => {
+        const id = setTimeout(() => {
           let negativecontroller = 0;
           let counter = 0;
 
@@ -46,6 +53,9 @@ export class BeaconStalkerProvider {
             }
           });
         }, (beacon.tick - 10) * 1000);
+
+        this.workers.push(id);
+        console.log(this.workers)
       }
     });
   }

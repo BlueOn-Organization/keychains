@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { BackgroundMode, BackgroundModeConfiguration } from '@ionic-native/background-mode';
+import { BackgroundMode } from '@ionic-native/background-mode';
 import { Storage } from '@ionic/storage';
 import { BeaconStalkerProvider } from '../../providers/beacon-stalker/beacon-stalker';
 
@@ -28,7 +28,7 @@ export class NotificationToggleComponent {
       this.enabled = true;
       this.backgroundMode.enable();
       this.backgroundMode.overrideBackButton();
-      this.startMonitoring();
+      this.stalker.watch();
     });
   }
 
@@ -36,11 +36,8 @@ export class NotificationToggleComponent {
     this.storage.set('beacon-watching', false).then(()=>{
       this.enabled = false;
       this.backgroundMode.disable();
+      this.stalker.unWatch();
     });
-  }
-
-  startMonitoring() {
-    this.stalker.watch();
   }
 
 }

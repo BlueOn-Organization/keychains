@@ -48,6 +48,7 @@ export class DeviceOptionsPage {
           text: 'Si',
           handler: data => {
             this.storage.delete(this.beacon);
+            this.navCtrl.pop();
           }
         }
       ]
