@@ -10,25 +10,24 @@ export class BeaconMonitorProvider {
   // private delegate: IBeaconDelegate;
   private uuid: string = 'b9407f30-f5f8-466e-aff9-25556b57fe6d';
 
-  private distance: Subject<number>;
-
   constructor(
     private ibeacon: IBeacon
   ) {
-    this.distance = new Subject();
     this.beaconRegion = this.ibeacon.BeaconRegion('blue-on', this.uuid);
   }
 
   public search(beacon: Beacon): Observable<number> {
+    let distance = new Subject<number>();
+
     this.start().subscribe(
       data => {
         const found = data.beacons.find(b => b.major == beacon.major && b.minor == beacon.minor)
-        this.distance.next(found ? found.accuracy : -1)
+        distance.next(found ? found.accuracy : -1)
       },
       error => console.error()
     );
 
-    return this.distance.asObservable();
+    return distance.asObservable();
   }
 
   private start(): Observable<IBeaconPluginResult> {
