@@ -27,7 +27,6 @@ export class NotificationToggleComponent {
     this.storage.set('beacon-watching', true).then(()=>{
       this.enabled = true;
       this.backgroundMode.enable();
-      this.backgroundMode.overrideBackButton();
       this.stalker.watch();
     });
   }

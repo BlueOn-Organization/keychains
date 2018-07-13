@@ -3,7 +3,6 @@ import { NavController, AlertController } from 'ionic-angular';
 import { BeaconsStorage } from '../../providers/beacons-storage/beacons-storage';
 import { Beacon } from '../../app/beacon.model';
 import { IBeacon } from '@ionic-native/ibeacon';
-import { BeaconStalkerProvider } from '../../providers/beacon-stalker/beacon-stalker';
 
 @Component({
   selector: 'page-home',

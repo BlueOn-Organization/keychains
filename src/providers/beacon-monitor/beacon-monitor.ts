@@ -1,17 +1,19 @@
 import { Injectable } from '@angular/core';
-import { BeaconRegion, IBeacon, IBeaconDelegate, IBeaconPluginResult } from '@ionic-native/ibeacon';
+import { BeaconRegion, IBeacon, IBeaconPluginResult } from '@ionic-native/ibeacon';
 import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
 import { Beacon } from '../../app/beacon.model';
+import { BeaconStalkerProvider } from '../beacon-stalker/beacon-stalker';
 
 @Injectable()
 export class BeaconMonitorProvider {
   private beaconRegion: BeaconRegion;
-  // private delegate: IBeaconDelegate;
   private uuid: string = 'b9407f30-f5f8-466e-aff9-25556b57fe6d';
 
+
   constructor(
-    private ibeacon: IBeacon
+    private ibeacon: IBeacon,
+    private stalker: BeaconStalkerProvider
   ) {
     this.beaconRegion = this.ibeacon.BeaconRegion('blue-on', this.uuid);
   }
@@ -31,6 +33,8 @@ export class BeaconMonitorProvider {
   }
 
   private start(): Observable<IBeaconPluginResult> {
+    if (this.stalker.isWatching) this.stalker.unWatch();
+
     this.ibeacon.requestAlwaysAuthorization();
 
     const delegate = this.ibeacon.Delegate();
@@ -47,6 +51,7 @@ export class BeaconMonitorProvider {
   public stop() {
     this.ibeacon.stopRangingBeaconsInRegion(this.beaconRegion);
     this.ibeacon.stopMonitoringForRegion(this.beaconRegion);
+    this.stalker.watch();
   }
 
 }
