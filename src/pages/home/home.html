@@ -15,9 +15,11 @@
   <beacon *ngFor="let device of saved_devices" [device]="device" (saved)="finishEdit($event)"></beacon>
 
   <ion-fab right bottom (click)="add()" [hidden]="hideAdd">
+
     <button ion-fab>
       <ion-icon name="add"></ion-icon>
     </button>
+
   </ion-fab>
 
   <img id="imag" src="assets/imgs/log.jpeg" alt="">
