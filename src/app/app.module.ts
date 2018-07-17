@@ -8,17 +8,20 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { BLE } from '@ionic-native/ble';
 import { IBeacon } from '@ionic-native/ibeacon';
 import { QRScanner } from '@ionic-native/qr-scanner';
+import { LocalNotifications } from '@ionic-native/local-notifications';
+import { BackgroundMode } from '@ionic-native/background-mode';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ComponentsModule } from '../components/components.module';
 import { BeaconsStorage } from '../providers/beacons-storage/beacons-storage';
-import { GetDistanceProvider } from '../providers/get-distance/get-distance';
+import { BeaconMonitorProvider } from '../providers/beacon-monitor/beacon-monitor';
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AuthProvider } from '../providers/auth/auth';
+import { BeaconStalkerProvider } from '../providers/beacon-stalker/beacon-stalker';
 
 const firebaseConfig = {
   apiKey: "AIzaSyAq6P4eZJLp6cj1_zseF4N8Ouxj5kFZSWQ",
@@ -58,9 +61,13 @@ const firebaseConfig = {
     BLE,
     IBeacon,
     QRScanner,
+    LocalNotifications,
+    BackgroundMode,
     BeaconsStorage,
-    GetDistanceProvider,
-    AuthProvider
+    BeaconMonitorProvider,
+    AuthProvider,
+    BeaconStalkerProvider,
+    BeaconStalkerProvider
   ]
 })
 export class AppModule {}

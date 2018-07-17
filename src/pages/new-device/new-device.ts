@@ -73,21 +73,23 @@ export class NewDevicePage {
   }
 
   private handleSuccessfulScan(contents: string): void {
-    if (this.validUuid(contents)) {
-      this.saveDevice(contents);
-    } else {
-      const alert = this.alertCtrl.create({subTitle: contents + ' no es una uuid valida'});
+    try {
+      const obj = <Beacon>JSON.parse(contents);
+      if (!this.validUuid(obj.uuid)) throw new SyntaxError;
+      this.saveDevice(obj);
+    } catch (error) {
+      const alert = this.alertCtrl.create({ subTitle: 'El código QR no contiene información reconocible.' });
       alert.present();
       alert.onDidDismiss(() => this.scan());
     }
   }
 
-  private validUuid (content: string) {
+  private validUuid(content: string) {
     const regx = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i
-      return regx.test(content)
+    return regx.test(content)
   }
 
-  private saveDevice(uuid: string) {
+  private saveDevice(beacon: Beacon) {
     let prompt = this.alertCtrl.create({
       title: 'Agregar',
       subTitle: 'dispositivo detectado:',
@@ -103,7 +105,7 @@ export class NewDevicePage {
           text: 'Cancelar',
           role: 'cancel',
           handler: data => {
-            this.alertCtrl.create({title: 'Dispositivo descartado'}).present();
+            this.alertCtrl.create({ title: 'Dispositivo descartado' }).present();
             this.navCtrl.pop();
           }
         },
@@ -113,10 +115,8 @@ export class NewDevicePage {
             if (data.name == '') {
               return false;
             } else {
-              this.storage.save(<Beacon>{
-                nombre: data.name,
-                uid: uuid
-              });
+              beacon.nombre = data.name;
+              this.storage.save(beacon);
               this.navCtrl.pop();
             }
           }

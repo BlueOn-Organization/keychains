@@ -1,6 +1,6 @@
 import { Component, NgZone } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { GetDistanceProvider } from '../../providers/get-distance/get-distance';
+import { BeaconMonitorProvider } from '../../providers/beacon-monitor/beacon-monitor';
 import { Beacon } from '../../app/beacon.model';
 
 @IonicPage()
@@ -19,7 +19,7 @@ export class SearchPage {
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
-    public finder: GetDistanceProvider,
+    public finder: BeaconMonitorProvider,
     private ngzone: NgZone
   ) {
     this.background = '#2575bb';
@@ -31,7 +31,7 @@ export class SearchPage {
   }
 
   find(beacon: Beacon) {
-    this.finder.start(beacon).subscribe(distance => {
+    this.finder.search(beacon).subscribe(distance => {
       console.log(distance);
 
       this.ngzone.run(() => {

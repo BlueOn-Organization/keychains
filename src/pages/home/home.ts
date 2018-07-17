@@ -13,19 +13,19 @@ export class HomePage {
 
   constructor(
     public navCtrl: NavController,
-    private storage: BeaconsStorage,
+    private beaconsStorage: BeaconsStorage,
     private ibeacon: IBeacon,
     private alert: AlertController
   ) {}
 
   ionViewDidLoad() {
-   this.checkBluetoothEnabled()
+    this.checkBluetoothEnabled();
   }
 
   checkBluetoothEnabled() {
     this.ibeacon.isBluetoothEnabled().then(enabled => {
       if (enabled) {
-        this.storage.loadStorage().then((beacons) => this.saved_devices = beacons)
+        this.getBeacons();
       } else {
         this.alert.create({
           enableBackdropDismiss: false,
@@ -40,8 +40,11 @@ export class HomePage {
     });
   }
 
+  getBeacons() {
+    this.beaconsStorage.load().then((beacons) => this.saved_devices = beacons);
+  }
+
   add() {
     this.navCtrl.push('NewDevicePage');
   }
-
 }

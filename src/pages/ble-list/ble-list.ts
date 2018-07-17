@@ -46,8 +46,8 @@ export class BleListPage {
 
   connect(device) {
     const conn = this.ble.connect(device.id).subscribe(response => {
-      console.log(response);
-      alert(JSON.stringify(response));
+            alert(JSON.stringify(response));
+      console.log(response.services);
       this.ble.disconnect(device.id);
       conn.unsubscribe();
     }
