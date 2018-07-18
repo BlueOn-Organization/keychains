@@ -1,0 +1,9 @@
+page-new-device-list {
+    ion-card ion-label {
+        display: none !important;
+    }
+
+    ion-item.data {
+        padding: 10px 0 10px 15px;
+    }
+}

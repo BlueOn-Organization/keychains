@@ -1,0 +1,20 @@
+<ion-header no-border>
+    <ion-navbar transparent>
+      <ion-title color="light">Dispositivos nuevos encontrados</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding color="primary">
+  <ion-card *ngFor="let device of new_beacons">
+    <ion-item color="secondary" class="data">
+      <div item-content>
+        <p>ID: {{device.id}}</p>
+        <p>major: {{device.major}} - minor: {{device.minor}}</p>
+      </div>
+      <button ion-button icon-only clear item-end color="light" (click)="saveDevice(device)">
+        <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-item>
+  </ion-card>  
+</ion-content>
