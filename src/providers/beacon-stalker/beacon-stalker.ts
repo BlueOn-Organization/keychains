@@ -20,7 +20,7 @@ export class BeaconStalkerProvider {
     private localNotifications: LocalNotifications,
     beaconStorage: BeaconsStorage,
     private ibeacon: IBeacon,
-    private app: App
+    app: App
   ) {
     this.spected_beacons = beaconStorage.list;
     this.nearby_beacons = {};

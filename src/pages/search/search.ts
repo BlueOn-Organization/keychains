@@ -19,7 +19,7 @@ export class SearchPage {
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
-    public finder: BeaconMonitorProvider,
+    public monitor: BeaconMonitorProvider,
     private ngzone: NgZone
   ) {
     this.background = '#2575bb';
@@ -31,7 +31,7 @@ export class SearchPage {
   }
 
   find(beacon: Beacon) {
-    this.finder.search(beacon).subscribe(distance => {
+    this.monitor.trace(beacon).subscribe(distance => {
       console.log(distance);
 
       this.ngzone.run(() => {
@@ -82,7 +82,7 @@ export class SearchPage {
   }
 
   ionViewWillLeave() {
-    this.finder.stop();
+    this.monitor.stop();
   }
 
 }

@@ -15,10 +15,9 @@ export class BeaconMonitorProvider {
     private ibeacon: IBeacon,
     private stalker: BeaconStalkerProvider
   ) {
-    this.beaconRegion = this.ibeacon.BeaconRegion('blue-on', this.uuid);
   }
 
-  public search(beacon: Beacon): Observable<number> {
+  public trace(beacon: Beacon): Observable<number> {
     let distance = new Subject<number>();
 
     this.start().subscribe(
@@ -32,7 +31,25 @@ export class BeaconMonitorProvider {
     return distance.asObservable();
   }
 
+  public search(): Observable<Beacon[]> {
+    let beacons = new Subject<Beacon[]>();
+
+    this.start().subscribe(
+      data => beacons.next(data.beacons.map(b => <Beacon>{
+        uuid: b.uuid,
+        major: b.major,
+        minor: b.minor,
+        cid: `${b.major}${b.minor}`
+      })),
+      error => console.error(error)
+    );
+
+    return beacons.asObservable();
+  }
+
   private start(): Observable<IBeaconPluginResult> {
+    this.beaconRegion = this.ibeacon.BeaconRegion('blue-on', this.uuid);
+    
     if (this.stalker.isWatching) this.stalker.unWatch();
 
     this.ibeacon.requestAlwaysAuthorization();

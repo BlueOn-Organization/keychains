@@ -19,7 +19,7 @@ export class HomePage {
   ) {}
 
   ionViewDidLoad() {
-    this.checkBluetoothEnabled();
+    // this.checkBluetoothEnabled();
   }
 
   checkBluetoothEnabled() {
@@ -46,5 +46,9 @@ export class HomePage {
 
   add() {
     this.navCtrl.push('NewDevicePage');
+  }
+
+  search() {
+    this.navCtrl.push('NewDeviceListPage');
   }
 }

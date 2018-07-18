@@ -116,6 +116,7 @@ export class NewDevicePage {
               return false;
             } else {
               beacon.nombre = data.name;
+              beacon.cid = `${beacon.major}${beacon.minor}`;
               this.storage.save(beacon);
               this.navCtrl.pop();
             }

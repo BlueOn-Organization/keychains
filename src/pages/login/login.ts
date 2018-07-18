@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { AngularFireAuth } from 'angularfire2/auth';
-import {HomePage} from '../home/home';
-import {IntroPage} from '../intro/intro';
 import { Storage } from '@ionic/storage';
 
 export interface User {
