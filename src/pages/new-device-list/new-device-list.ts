@@ -10,9 +10,7 @@ import { Beacon } from '../../app/beacon.model';
   templateUrl: 'new-device-list.html',
 })
 export class NewDeviceListPage {
-  new_beacons: Beacon[] = [
-    <Beacon>{major: 5064, minor: 47868,cid: "506447868",tick:-1, uuid: "b9407f30-f5f8-466e-aff9-25556b57fe6d", id: "b9407f30", nombre: "25556b57fe6d"}
-  ];
+  new_beacons: Beacon[] = [];
 
   constructor(
     private monitor: BeaconMonitorProvider,

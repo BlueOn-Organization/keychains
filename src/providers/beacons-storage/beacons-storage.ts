@@ -39,7 +39,7 @@ export class BeaconsStorage {
   }
 
   delete(b: Beacon) {
-    const index = this.findIndex(b.uuid);
+    const index = this.findIndex(b.cid);
     if (index != -1) {
       this.beacons.splice(index, 1);
       this.overrieStorage();
