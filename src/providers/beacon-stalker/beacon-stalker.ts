@@ -52,6 +52,8 @@ export class BeaconStalkerProvider {
   }
 
   private checkFound(found_beacons: any[]) {
+    if(!this.watching) this.unWatch;
+
     for (let id in this.nearby_beacons) {
       this.nearby_beacons[id] -= 1;
 
@@ -69,7 +71,7 @@ export class BeaconStalkerProvider {
     console.log('*****************************************************');
 
     const id = setTimeout(() => {
-      if (beacon.tick != -1) {
+      if (this.watching && beacon.tick != -1) {
         if (this.nearby_beacons.hasOwnProperty(`${beacon.major}${beacon.minor}`)) {
           console.log(`${beacon.nombre} is near`);
           this.localNotifications.clear(index+1)
