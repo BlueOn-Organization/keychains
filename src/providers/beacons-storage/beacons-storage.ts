@@ -29,7 +29,7 @@ export class BeaconsStorage {
   }
 
   save(b: Beacon) {
-    const index = this.findIndex(b.uuid);
+    const index = this.findIndex(b.cid);
     if (index != -1) {
       this.beacons[index] = b;
     } else {
@@ -39,7 +39,7 @@ export class BeaconsStorage {
   }
 
   delete(b: Beacon) {
-    const index = this.findIndex(b.uuid);
+    const index = this.findIndex(b.cid);
     if (index != -1) {
       this.beacons.splice(index, 1);
       this.overrieStorage();
@@ -48,8 +48,8 @@ export class BeaconsStorage {
     }
   }
 
-  findIndex(uuid: string) {
-    return this.beacons.findIndex(beacon => beacon.uuid === uuid);
+  findIndex(cid: string) {
+    return this.beacons.findIndex(beacon => beacon.cid === cid);
   }
 
   private overrieStorage() {

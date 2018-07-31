@@ -47,4 +47,8 @@ export class HomePage {
   add() {
     this.navCtrl.push('NewDevicePage');
   }
+
+  search() {
+    this.navCtrl.push('NewDeviceListPage');
+  }
 }
