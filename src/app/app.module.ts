@@ -22,6 +22,8 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AuthProvider } from '../providers/auth/auth';
 import { BeaconStalkerProvider } from '../providers/beacon-stalker/beacon-stalker';
+import {ContentPopoverComponent} from "../components/content-popover/content-popover";
+import {LoginPage} from "../pages/login/login";
 
 const firebaseConfig = {
   apiKey: "AIzaSyAq6P4eZJLp6cj1_zseF4N8Ouxj5kFZSWQ",
@@ -35,7 +37,8 @@ const firebaseConfig = {
 @NgModule({
   declarations: [
     MyApp,
-    HomePage
+    HomePage,
+    LoginPage
   ],
   imports: [
     BrowserModule,
@@ -52,7 +55,9 @@ const firebaseConfig = {
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage
+    HomePage,
+    LoginPage,
+    ContentPopoverComponent
   ],
   providers: [
     StatusBar,

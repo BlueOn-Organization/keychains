@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { Storage } from '@ionic/storage';
+import {auth} from "firebase/app";
 
 export interface User {
   email: string;
@@ -44,7 +45,6 @@ export class LoginPage {
         user.password
       );
       if (result) {
-        this.storage.set('loginOn', true);
         //this.navCtrl.setRoot('IntroPage');
         this.navCtrl.setRoot('IntroPage', {}, {
           animate: true,
@@ -59,6 +59,31 @@ export class LoginPage {
       });
       alert.present();
     }
+  }
+
+  facebook(){
+    this.afAuth.auth.signInWithPopup(new auth.FacebookAuthProvider).then(x=>{
+        if (x){
+          this.navCtrl.setRoot('IntroPage', {}, {
+            animate: true,
+            direction: 'forward'
+          });
+        }
+      }
+    )
+  }
+
+
+  twiter(){
+    this.afAuth.auth.signInWithPopup(new auth.TwitterAuthProvider()).then(x=>{
+        if (x){
+          this.navCtrl.setRoot('IntroPage', {}, {
+            animate: true,
+            direction: 'forward'
+          });
+        }
+      }
+    )
   }
 
   signin(){
@@ -82,6 +107,4 @@ export class LoginPage {
       // })
 
   }
-
-
 }

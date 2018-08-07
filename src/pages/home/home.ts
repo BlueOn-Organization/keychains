@@ -3,6 +3,8 @@ import { NavController, AlertController } from 'ionic-angular';
 import { BeaconsStorage } from '../../providers/beacons-storage/beacons-storage';
 import { Beacon } from '../../app/beacon.model';
 import { IBeacon } from '@ionic-native/ibeacon';
+import { PopoverController } from 'ionic-angular';
+import {ContentPopoverComponent} from "../../components/content-popover/content-popover";
 
 @Component({
   selector: 'page-home',
@@ -15,8 +17,16 @@ export class HomePage {
     public navCtrl: NavController,
     private beaconsStorage: BeaconsStorage,
     private ibeacon: IBeacon,
-    private alert: AlertController
+    private alert: AlertController,
+    public popoverCtrl: PopoverController
   ) {}
+
+  presentPopover(myEvent) {
+    let popover = this.popoverCtrl.create(ContentPopoverComponent);
+    popover.present({
+      ev: myEvent
+    });
+  }
 
   ionViewDidLoad() {
     this.checkBluetoothEnabled();

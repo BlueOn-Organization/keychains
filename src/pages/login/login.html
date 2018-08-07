@@ -9,8 +9,7 @@
   <ion-navbar>
     <ion-title>
       <img alt="logo" height="40" id="logo"  src="assets/imgs/logo.png" >
-      <span id="name">Registro</span>
-      <img alt="logo" height="40" id="like"  src="assets/imgs/like.png" >
+      <span id="name">Iniciar Sesión</span>
     </ion-title>
   </ion-navbar>
 
@@ -18,7 +17,7 @@
 
 
 <ion-content padding>
-  <ion-item style="background-color:transparent; margin-top: 10px; ">
+  <!--ion-item style="background-color:transparent; margin-top: 10px; ">
     <ion-label floating>Correo electrónico</ion-label>
     <ion-input type="text" [(ngModel)]="user.email"></ion-input>
   </ion-item>
@@ -29,7 +28,11 @@
   </ion-item>
 
   <button ion-button (click)="signin()">Iniciar sesión</button>
-  <button ion-button (click)="register(user)">Regístrate</button>
+  <button ion-button (click)="register(user)">Regístrate</button-->
+  <img alt="logo" height="280" id="logoo" src="assets/imgs/logo.png">
+
+  <button ion-button class="btn_face" (click)="facebook()">Continua con Facebook</button>
+  <button ion-button class="btn_twiter" (click)="twiter()">Continua con Twiter</button>
 
   <img id="imag" src="assets/imgs/log.jpeg" alt="">
   <p id="by">by: www.like-on.co</p>

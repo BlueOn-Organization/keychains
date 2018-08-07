@@ -6,6 +6,7 @@ import { Storage } from '@ionic/storage';
 
 import { HomePage } from "../pages/home/home";
 import { BackgroundMode } from '@ionic-native/background-mode';
+import {LoginPage} from "../pages/login/login";
 
 @Component({
   templateUrl: 'app.html'
@@ -46,7 +47,7 @@ export class MyApp {
       if (result) {
         this.rootPage = HomePage;
       } else {
-        this.rootPage = 'LoginPage';
+        this.rootPage = LoginPage;
       }
     });
 
