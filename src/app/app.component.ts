@@ -43,7 +43,7 @@ export class MyApp {
     });
 
     storage.get('introShown').then(result => {
-      console.log('introShown' + result)
+      console.log('introShown' + result);
       if (result) {
         this.rootPage = HomePage;
       } else {

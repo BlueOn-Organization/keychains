@@ -23,6 +23,7 @@
     "@ionic-native/background-mode": "^4.9.0",
     "@ionic-native/ble": "^4.5.3",
     "@ionic-native/core": "4.4.0",
+    "@ionic-native/facebook": "^4.11.0",
     "@ionic-native/ibeacon": "^4.5.3",
     "@ionic-native/local-notifications": "^4.9.0",
     "@ionic-native/qr-scanner": "^4.5.3",
@@ -38,6 +39,7 @@
     "cordova-plugin-ble-central": "^1.1.4",
     "cordova-plugin-compat": "^1.2.0",
     "cordova-plugin-device": "^2.0.1",
+    "cordova-plugin-facebook4": "^2.2.0",
     "cordova-plugin-ibeacon": "^3.6.1",
     "cordova-plugin-ionic-keyboard": "^2.0.5",
     "cordova-plugin-ionic-webview": "^1.1.16",
@@ -72,7 +74,12 @@
       "cordova-plugin-statusbar": {},
       "com.unarin.cordova.beacon": {},
       "cordova-plugin-local-notification": {},
-      "cordova-plugin-background-mode": {}
+      "cordova-plugin-background-mode": {},
+      "cordova-plugin-facebook4": {
+        "APP_ID": "1795511067200730",
+        "APP_NAME": "blue_on",
+        "ANDROID_SDK_VERSION": "4.+"
+      }
     },
     "platforms": [
       "android"

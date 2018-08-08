@@ -3,6 +3,9 @@ import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angu
 import { AngularFireAuth } from 'angularfire2/auth';
 import { Storage } from '@ionic/storage';
 import {auth} from "firebase/app";
+import * as firebase from 'firebase/app';
+import { Platform } from 'ionic-angular';
+import { Facebook } from '@ionic-native/facebook';
 
 export interface User {
   email: string;
@@ -30,7 +33,9 @@ export class LoginPage {
     private afAuth: AngularFireAuth,
     public navParams: NavParams,
     public storage: Storage,
-    public alertCtrl : AlertController
+    public alertCtrl : AlertController,
+    private fb: Facebook,
+    private platform: Platform
     ) {
 
   }
@@ -62,21 +67,36 @@ export class LoginPage {
   }
 
   facebook(){
-    this.afAuth.auth.signInWithPopup(new auth.FacebookAuthProvider).then(x=>{
-        if (x){
+    if (this.platform.is('cordova')) {
+      return this.fb.login(['email', 'public_profile']).then(res => {
+        const facebookCredential = firebase.auth.FacebookAuthProvider.credential(res.authResponse.accessToken);
+        return firebase.auth().signInWithCredential(facebookCredential).then(result =>{
+          this.storage.set('introShown', true);
           this.navCtrl.setRoot('IntroPage', {}, {
             animate: true,
             direction: 'forward'
           });
+        });
+      });
+    }else{
+      this.afAuth.auth.signInWithPopup(new firebase.auth.FacebookAuthProvider).then(x=>{
+          if (x){
+            this.storage.set('introShown', true);
+            this.navCtrl.setRoot('IntroPage', {}, {
+              animate: true,
+              direction: 'forward'
+            });
+          }
         }
-      }
-    )
+      );
+    }
   }
 
 
   twiter(){
     this.afAuth.auth.signInWithPopup(new auth.TwitterAuthProvider()).then(x=>{
         if (x){
+          this.storage.set('introShown', true);
           this.navCtrl.setRoot('IntroPage', {}, {
             animate: true,
             direction: 'forward'
@@ -86,25 +106,4 @@ export class LoginPage {
     )
   }
 
-  signin(){
-    // this.afAuth.auth.signInWithEmailAndPassword(this.user.email,this.user.password)
-    //   .then((user) => {
-    //     // El usuario se ha creado correctamente
-    //     this.storage.set('loginOn', true);
-    //     //this.navCtrl.setRoot('IntroPage');
-        this.navCtrl.setRoot('IntroPage', {}, {
-          animate: true,
-          direction: 'forward'
-        });
-      // })
-      // .catch(err=>{
-      //   let alert = this.alertCtrl.create({
-      //     title: 'Error',
-      //     subTitle: err.message,
-      //     buttons: ['Aceptar']
-      //   });
-      //   alert.present();
-      // })
-
-  }
 }

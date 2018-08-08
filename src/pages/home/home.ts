@@ -5,6 +5,10 @@ import { Beacon } from '../../app/beacon.model';
 import { IBeacon } from '@ionic-native/ibeacon';
 import { PopoverController } from 'ionic-angular';
 import {ContentPopoverComponent} from "../../components/content-popover/content-popover";
+import {AngularFireAuth} from "angularfire2/auth";
+import * as firebase from 'firebase/app';
+import {LoginPage} from "../login/login";
+import {Storage} from "@ionic/storage";
 
 @Component({
   selector: 'page-home',
@@ -17,8 +21,10 @@ export class HomePage {
     public navCtrl: NavController,
     private beaconsStorage: BeaconsStorage,
     private ibeacon: IBeacon,
+    public storage: Storage,
     private alert: AlertController,
-    public popoverCtrl: PopoverController
+    public popoverCtrl: PopoverController,
+    private afAuth: AngularFireAuth,
   ) {}
 
   presentPopover(myEvent) {
@@ -29,8 +35,9 @@ export class HomePage {
   }
 
   ionViewDidLoad() {
-    this.checkBluetoothEnabled();
+      this.verifyAuth();
   }
+
 
   checkBluetoothEnabled() {
     this.ibeacon.isBluetoothEnabled().then(enabled => {
@@ -50,6 +57,16 @@ export class HomePage {
     });
   }
 
+  verifyAuth() {
+    this.storage.get('introShown').then(result => {
+      console.log('introShown' + result);
+      if (result) {
+        this.checkBluetoothEnabled();
+      } else {
+        this.navCtrl.setRoot(LoginPage);
+      }
+    });
+  }
   getBeacons() {
     this.beaconsStorage.load().then((beacons) => this.saved_devices = beacons);
   }
