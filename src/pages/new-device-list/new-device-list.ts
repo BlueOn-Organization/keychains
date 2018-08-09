@@ -70,6 +70,7 @@ export class NewDeviceListPage {
             } else {
               beacon.nombre = data.name;
               beacon.cid = `${beacon.major}${beacon.minor}`;
+              beacon.tick = -1;
               this.storage.save(beacon);
               this.navCtrl.pop();
             }

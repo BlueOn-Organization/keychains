@@ -6,4 +6,9 @@ page-new-device-list {
     ion-item.data {
         padding: 10px 0 10px 15px;
     }
+
+    .censored {
+        filter: blur(2.3px);
+        text-decoration: line-through;
+    }
 }

@@ -22,6 +22,10 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AuthProvider } from '../providers/auth/auth';
 import { BeaconStalkerProvider } from '../providers/beacon-stalker/beacon-stalker';
+import {ContentPopoverComponent} from "../components/content-popover/content-popover";
+import {LoginPage} from "../pages/login/login";
+
+import { Facebook } from '@ionic-native/facebook';
 
 const firebaseConfig = {
   apiKey: "AIzaSyAq6P4eZJLp6cj1_zseF4N8Ouxj5kFZSWQ",
@@ -35,7 +39,8 @@ const firebaseConfig = {
 @NgModule({
   declarations: [
     MyApp,
-    HomePage
+    HomePage,
+    LoginPage,
   ],
   imports: [
     BrowserModule,
@@ -47,12 +52,14 @@ const firebaseConfig = {
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireAuthModule,
     AngularFirestoreModule.enablePersistence(),
-    ComponentsModule
+    ComponentsModule,
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage
+    HomePage,
+    LoginPage,
+    ContentPopoverComponent
   ],
   providers: [
     StatusBar,
@@ -67,7 +74,8 @@ const firebaseConfig = {
     BeaconMonitorProvider,
     AuthProvider,
     BeaconStalkerProvider,
-    BeaconStalkerProvider
+    BeaconStalkerProvider,
+    Facebook
   ]
 })
 export class AppModule {}
