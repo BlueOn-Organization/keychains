@@ -6,6 +6,7 @@ import {auth} from "firebase/app";
 import * as firebase from 'firebase/app';
 import { Platform } from 'ionic-angular';
 import { Facebook } from '@ionic-native/facebook';
+import { GooglePlus } from '@ionic-native/google-plus';
 
 export interface User {
   email: string;
@@ -35,7 +36,8 @@ export class LoginPage {
     public storage: Storage,
     public alertCtrl : AlertController,
     private fb: Facebook,
-    private platform: Platform
+    private platform: Platform,
+    private gplus: GooglePlus,
     ) {
 
   }
@@ -93,17 +95,41 @@ export class LoginPage {
   }
 
 
-  twiter(){
-    this.afAuth.auth.signInWithPopup(new auth.TwitterAuthProvider()).then(x=>{
-        if (x){
-          this.storage.set('introShown', true);
-          this.navCtrl.setRoot('IntroPage', {}, {
-            animate: true,
-            direction: 'forward'
-          });
-        }
+  async twiter() {
+
+    if (this.platform.is('cordova')) {
+      try {
+
+        const gplusUser = await this.gplus.login({
+          'webClientId': '271111022906-samhssoaovo3bdukkv5b47p7j1mhrb37.apps.googleusercontent.com',
+          'offline': true,
+          'scopes': 'profile email'
+        });
+
+        return await this.afAuth.auth.signInWithCredential(firebase.auth.GoogleAuthProvider.credential(gplusUser.idToken))
+          .then(result =>{
+            this.storage.set('introShown', true);
+            this.navCtrl.setRoot('IntroPage', {}, {
+              animate: true,
+              direction: 'forward'
+            });
+          })
+
+      } catch (err) {
+        console.log(err)
       }
-    )
+    } else {
+      this.afAuth.auth.signInWithPopup(new auth.TwitterAuthProvider()).then(x => {
+          if (x) {
+            this.storage.set('introShown', true);
+            this.navCtrl.setRoot('IntroPage', {}, {
+              animate: true,
+              direction: 'forward'
+            });
+          }
+        }
+      )
+    }
   }
 
 }

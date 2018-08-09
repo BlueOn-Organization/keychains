@@ -26,6 +26,7 @@ import {ContentPopoverComponent} from "../components/content-popover/content-pop
 import {LoginPage} from "../pages/login/login";
 
 import { Facebook } from '@ionic-native/facebook';
+import { GooglePlus } from '@ionic-native/google-plus';
 
 const firebaseConfig = {
   apiKey: "AIzaSyAq6P4eZJLp6cj1_zseF4N8Ouxj5kFZSWQ",
@@ -75,7 +76,8 @@ const firebaseConfig = {
     AuthProvider,
     BeaconStalkerProvider,
     BeaconStalkerProvider,
-    Facebook
+    Facebook,
+    GooglePlus
   ]
 })
 export class AppModule {}

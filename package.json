@@ -24,6 +24,7 @@
     "@ionic-native/ble": "^4.5.3",
     "@ionic-native/core": "4.4.0",
     "@ionic-native/facebook": "^4.11.0",
+    "@ionic-native/google-plus": "^4.11.0",
     "@ionic-native/ibeacon": "^4.5.3",
     "@ionic-native/local-notifications": "^4.9.0",
     "@ionic-native/qr-scanner": "^4.5.3",
@@ -40,6 +41,7 @@
     "cordova-plugin-compat": "^1.2.0",
     "cordova-plugin-device": "^2.0.1",
     "cordova-plugin-facebook4": "^2.2.0",
+    "cordova-plugin-googleplus": "^5.3.0",
     "cordova-plugin-ibeacon": "^3.6.1",
     "cordova-plugin-ionic-keyboard": "^2.0.5",
     "cordova-plugin-ionic-webview": "^1.1.16",
@@ -79,6 +81,9 @@
         "APP_ID": "1795511067200730",
         "APP_NAME": "blue_on",
         "ANDROID_SDK_VERSION": "4.+"
+      },
+      "cordova-plugin-googleplus": {
+        "REVERSED_CLIENT_ID": "1795511067200730"
       }
     },
     "platforms": [
