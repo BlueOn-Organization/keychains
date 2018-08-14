@@ -1,11 +1,12 @@
 page-search {
     .scroll-content {
         margin-top: 0 !important;
-        background-color: map-get($colors, 'primary');
+        background-image: url('../assets/imgs/fondoAzul.jpg');
     }
     ion-grid {
-        &, ion-row {
-            height: 100% !important;
+        #animation {
+          display: flex;
+          flex: 1 1;
         }
         position: relative;
         overflow: hidden;

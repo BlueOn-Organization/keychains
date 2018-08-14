@@ -4,13 +4,18 @@
   </ion-navbar>
 </ion-header>
 <ion-content>
-  <ion-grid [ngStyle]="{'background-color': background}">
-    <ion-row justify-content-center align-items-center >
-      <ion-card>
+  <ion-grid>
+      <ion-row justify-content-center align-items-center >
+        <span>Estas buscadon:</span>
+        <div>{{beacon_name}}</div>
+      </ion-row>
+    <ion-row justify-content-center align-items-center id="animation">
+      <!-- <ion-card>
         <h1 no-padding no-margin>{{label}}</h1>
         <h3 no-padding no-margin>{{label2}}</h3>
       </ion-card>
-      <ion-spinner name="crescent" duration="4000" [hidden]="fuera"></ion-spinner>
+      <ion-spinner name="crescent" duration="4000" [hidden]="fuera"></ion-spinner> -->
+      <img [src]="gif" alt="animation" />
     </ion-row>
   </ion-grid>
 </ion-content>
