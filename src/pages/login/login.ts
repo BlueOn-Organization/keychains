@@ -102,7 +102,7 @@ export class LoginPage {
 
         const gplusUser = await this.gplus.login({
           'webClientId': '271111022906-samhssoaovo3bdukkv5b47p7j1mhrb37.apps.googleusercontent.com',
-          'offline': true,
+          'offline': false,
           'scopes': 'profile email'
         });
 

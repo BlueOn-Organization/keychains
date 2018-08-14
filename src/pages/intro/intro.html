@@ -7,11 +7,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>
-      <img alt="logo" height="40" id="logo"  src="assets/imgs/logo.png" >
-      <span id="name">Tutorial</span>
-      <img alt="logo" height="40" id="like"  src="assets/imgs/like.png" >
-    </ion-title>
+    <ion-title>Tutorial</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -20,14 +16,13 @@
 <ion-content>
   <ion-slides pager="true" dir="{{dir}}" (ionSlideWillChange)="onSlideChangeStart($event)">
     <ion-slide >
-      <!-- <img src="assets/imgs/logo.png" class="slide-image" /> -->
-
+      
       <button ion-button icon-end large clear id="btn" (click)="startApp()">
         Empieza ahora
         <ion-icon name="arrow-forward"></ion-icon>
       </button>
       <img src="assets/imgs/paso.jpg" id="slid"/>
-      <p id="by">by: www.like-on.co</p>
+
     </ion-slide>
   </ion-slides>
 </ion-content>

@@ -14,36 +14,10 @@ page-login {
     flex-direction: column;
     align-content: stretch;
     padding-top: 5px;
-    background-image: url('../assets/imgs/bgfond.jpg');
+    background-image: url('../assets/imgs/Flogin.jpg');
     background-size: 100% 100%;
-  }
-
-  #name {
-    position: absolute;
-    left: 65px;
-    top: 10px;
-  }
-
-  #logo {
-    display: inline-block
-  }
-
-  #like {
-    position: absolute;
-    right: 0;
-  }
-
-  #by{
-    position: fixed;
-    bottom: 5px;
-  }
-
-
-  #imag{
-    position: fixed;
-    bottom: 35px;
-    height: 25px;
-    width: 140px;
+    text-align: center;
+    color: white;
   }
 
   ion-navbar .toolbar-background{
@@ -56,6 +30,26 @@ page-login {
   }
   .btn_twiter{
     background-color: #d34836;
+  }
+
+  h1{
+    font-family: "Avenir";
+    font-size: 65px;
+    padding-top: 40px;
+    margin-bottom: 0px;
+  }
+  #text1{
+    font-size: 25px;
+    margin-top: 0px !important;
+    margin-bottom: 35px !important;
+  }
+
+  #text2{
+    margin-bottom: 0px;
+  }
+
+  p{
+    font-family: "Avenir";
   }
 
 }

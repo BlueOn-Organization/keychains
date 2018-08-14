@@ -14,20 +14,6 @@ page-home {
       width: 0 !important;
     }
 
-    #name {
-      position: absolute;
-      left: 55px;
-      top: 10px;
-    }
-  
-    #logo {
-      display: inline-block
-    }
-  
-    #like {
-      position: absolute;
-      right: 0;
-    }
   }
 
   .scroll-content{
@@ -35,21 +21,11 @@ page-home {
     flex-direction: column;
     align-content: stretch;
     // padding-top: 5px !important;
-    background-image: url('../assets/imgs/bgfond.jpg');
+    background-image: url('../assets/imgs/Finicio.jpg');
     background-size: 100% 100%;
+    text-align: center;
   }
 
-  #by{
-    position: fixed;
-    bottom: 5px;
-  }  
-
-  #imag{
-    position: fixed;
-    bottom: 35px;
-    height: 25px;
-    width: 140px;
-  }
 
   #notification-toggle {
     background-color: transparent;
@@ -64,4 +40,27 @@ page-home {
   #search-list {
     right: 76px !important;
   }
+  h1{
+    padding-top: 40px;
+    margin-bottom: 40px;
+    font-size: 35px;
+    font-family: "Avenir";
+    color: white;
+  }
+
+  button{
+    background-image: url("../assets/imgs/ModeloBtnInicio.png");
+    background-size: 100% 100%;
+    height: 60px !important;
+    font-size: 25px !important;
+    font-family: "Avenir";
+  }
+  img{
+
+    display: block;
+    width: 40%;
+    margin: auto;
+    margin-top: 10px;
+  }
+
 }
