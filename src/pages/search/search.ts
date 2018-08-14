@@ -29,7 +29,7 @@ export class SearchPage {
   ionViewDidLoad() {
     const beacon = <Beacon>this.navParams.get('beacon');
     this.beacon_name = beacon.nombre;
-    // this.find(beacon);
+    this.find(beacon);
   }
 
   find(beacon: Beacon) {
