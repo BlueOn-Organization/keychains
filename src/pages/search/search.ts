@@ -56,8 +56,7 @@ export class SearchPage {
             this.gif = 'assets/imgs/gif1.gif';
             this.label = 'Muy cerca';
             this.label2 = `Estas a menos de 1 mt`;
-          }
-          if (this.distance < 2) {
+          }else if (this.distance < 2) {
             this.gif = 'assets/imgs/gif1.gif';
             this.label = 'Muy cerca';
             this.label2 = `Estas a menos de 2 mts`;
@@ -65,12 +64,12 @@ export class SearchPage {
           else if (this.distance <= 15) {
             this.gif = 'assets/imgs/gif2.gif';
             this.label = 'Cerca';
-            this.label2 = `Estas a menos de ${Math.round(distance)} mts`;
+            this.label2 = `Estas a menos de ${Math.round(distance) + 1} mts`;
           }
           else {
             this.gif = 'assets/imgs/gif3.gif';
             this.label = 'Lejos';
-            this.label2 = `Estas a mas de ${Math.round(distance)} mts`;
+            this.label2 = `Estas a mas de ${Math.round(distance) + 1} mts`;
           }
           this.distance = distance;
         }

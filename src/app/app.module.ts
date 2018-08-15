@@ -27,7 +27,6 @@ import {LoginPage} from "../pages/login/login";
 
 import { Facebook } from '@ionic-native/facebook';
 import { GooglePlus } from '@ionic-native/google-plus';
-import {DeviceListPage} from "../pages/device-list/device-list";
 
 const firebaseConfig = {
   apiKey: "AIzaSyAq6P4eZJLp6cj1_zseF4N8Ouxj5kFZSWQ",
@@ -42,8 +41,7 @@ const firebaseConfig = {
   declarations: [
     MyApp,
     HomePage,
-    LoginPage,
-    DeviceListPage,
+    LoginPage
   ],
   imports: [
     BrowserModule,
@@ -62,7 +60,6 @@ const firebaseConfig = {
     MyApp,
     HomePage,
     LoginPage,
-    DeviceListPage,
     ContentPopoverComponent
   ],
   providers: [
@@ -77,7 +74,6 @@ const firebaseConfig = {
     BeaconsStorage,
     BeaconMonitorProvider,
     AuthProvider,
-    BeaconStalkerProvider,
     BeaconStalkerProvider,
     Facebook,
     GooglePlus

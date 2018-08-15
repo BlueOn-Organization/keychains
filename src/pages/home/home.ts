@@ -1,15 +1,11 @@
 import { Component } from '@angular/core';
 import { NavController, AlertController } from 'ionic-angular';
-import { BeaconsStorage } from '../../providers/beacons-storage/beacons-storage';
-import { Beacon } from '../../app/beacon.model';
 import { IBeacon } from '@ionic-native/ibeacon';
 import { PopoverController } from 'ionic-angular';
-import {ContentPopoverComponent} from "../../components/content-popover/content-popover";
 import {AngularFireAuth} from "angularfire2/auth";
-import * as firebase from 'firebase/app';
 import {LoginPage} from "../login/login";
 import {Storage} from "@ionic/storage";
-import {DeviceListPage} from "../device-list/device-list";
+import { BeaconsStorage } from '../../providers/beacons-storage/beacons-storage';
 
 @Component({
   selector: 'page-home',
@@ -25,6 +21,7 @@ export class HomePage {
     private alert: AlertController,
     public popoverCtrl: PopoverController,
     private afAuth: AngularFireAuth,
+    private beaconsStorage: BeaconsStorage
   ) {}
 
   ionViewDidLoad() {
@@ -33,7 +30,9 @@ export class HomePage {
 
   checkBluetoothEnabled() {
     this.ibeacon.isBluetoothEnabled().then(enabled => {
-      if (!enabled) {
+      if (enabled) {
+        this.beaconsStorage.load();
+      } else {
         this.alert.create({
           enableBackdropDismiss: false,
           subTitle: 'El Bluetooth está desactivado, debes activarlo para poder continuar.',
@@ -43,13 +42,9 @@ export class HomePage {
             handler: () => this.checkBluetoothEnabled()
           }]
         }).present();
-
       }
     });
   }
-
-
-
 
   add() {
     this.navCtrl.push('NewDevicePage');
@@ -60,7 +55,7 @@ export class HomePage {
   }
 
   device(){
-    this.navCtrl.push(DeviceListPage);
+    this.navCtrl.push('DeviceListPage');
   }
 
   tutorial(){
