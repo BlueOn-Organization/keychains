@@ -4,6 +4,7 @@ beacon {
       display: none !important;
     }
 
+    border: none !important;
     padding: 10px 0 10px 15px;
 
     [item-content] {
@@ -19,6 +20,10 @@ beacon {
         }
       }
     }
+  }
+
+  ion-item-options {
+    border: none !important;
   }
 
   ion-item-options .button {
