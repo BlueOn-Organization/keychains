@@ -27,12 +27,9 @@ export class HomePage {
     private afAuth: AngularFireAuth,
   ) {}
 
-
-
   ionViewDidLoad() {
       this.checkBluetoothEnabled();
   }
-
 
   checkBluetoothEnabled() {
     this.ibeacon.isBluetoothEnabled().then(enabled => {
