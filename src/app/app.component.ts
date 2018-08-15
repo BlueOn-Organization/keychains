@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
-import { Platform, App } from 'ionic-angular';
+import {Platform, App} from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { Storage } from '@ionic/storage';
 
 import { HomePage } from "../pages/home/home";
 import { BackgroundMode } from '@ionic-native/background-mode';
-import {LoginPage} from "../pages/login/login";
+//import {LoginPage} from "../pages/login/login";
 
 @Component({
   templateUrl: 'app.html'
@@ -20,7 +20,7 @@ export class MyApp {
     statusBar: StatusBar,
     splashScreen: SplashScreen,
     storage: Storage,
-    backgroundMode: BackgroundMode
+    backgroundMode: BackgroundMode,
   ) {
     platform.ready().then(() => {
       statusBar.overlaysWebView(false);
@@ -47,7 +47,8 @@ export class MyApp {
       if (result) {
         this.rootPage = HomePage;
       } else {
-        this.rootPage = LoginPage;
+        //this.rootPage = LoginPage;
+       this.rootPage = 'LoginPage';
       }
     });
 

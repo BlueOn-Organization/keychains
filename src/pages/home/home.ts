@@ -65,7 +65,7 @@ export class HomePage {
   logout(){
     this.afAuth.auth.signOut().then(x=>{
       this.storage.set('introShown', false);
-      this.navCtrl.setRoot(LoginPage);
+      this.navCtrl.setRoot('LoginPage');
     });
   }
 }

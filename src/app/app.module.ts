@@ -41,7 +41,6 @@ const firebaseConfig = {
   declarations: [
     MyApp,
     HomePage,
-    LoginPage
   ],
   imports: [
     BrowserModule,
@@ -59,7 +58,6 @@ const firebaseConfig = {
   entryComponents: [
     MyApp,
     HomePage,
-    LoginPage,
     ContentPopoverComponent
   ],
   providers: [

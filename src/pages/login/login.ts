@@ -73,13 +73,18 @@ export class LoginPage {
     if (this.platform.is('cordova')) {
       return this.fb.login(['email', 'public_profile']).then(res => {
         const facebookCredential = firebase.auth.FacebookAuthProvider.credential(res.authResponse.accessToken);
-        return firebase.auth().signInWithCredential(facebookCredential).then(result =>{
-          this.storage.set('introShown', true);
-          this.navCtrl.setRoot(HomePage, {}, {
-            animate: true,
-            direction: 'forward'
-          });
-        });
+        return firebase.auth().signInWithCredential(facebookCredential)
+          .then(result =>{
+            this.storage.set('introShown', true);
+            this.navCtrl.setRoot(HomePage, {}, {
+              animate: true,
+              direction: 'forward'
+            });
+           })
+          .catch(result=>{
+            console.log('Google Error' + result);
+            this.showAlert();
+          })
       });
     }else{
       this.afAuth.auth.signInWithPopup(new firebase.auth.FacebookAuthProvider).then(x=>{
@@ -100,13 +105,12 @@ export class LoginPage {
 
     if (this.platform.is('cordova')) {
       try {
-
+        console.log("1");
         const gplusUser = await this.gplus.login({
           'webClientId': '271111022906-samhssoaovo3bdukkv5b47p7j1mhrb37.apps.googleusercontent.com',
           'offline': false,
           'scopes': 'profile email'
         });
-
         return await this.afAuth.auth.signInWithCredential(firebase.auth.GoogleAuthProvider.credential(gplusUser.idToken))
           .then(result =>{
             this.storage.set('introShown', true);
@@ -115,9 +119,14 @@ export class LoginPage {
               direction: 'forward'
             });
           })
+          .catch(result =>{
+            console.log('Google Error' + result);
+            this.showAlert();
+          });
 
       } catch (err) {
         console.log(err)
+        this.showAlert();
       }
     } else {
       this.afAuth.auth.signInWithPopup(new auth.TwitterAuthProvider()).then(x => {
@@ -131,6 +140,15 @@ export class LoginPage {
         }
       )
     }
+  }
+
+  showAlert() {
+    const alert = this.alertCtrl.create({
+      title: 'Error',
+      subTitle: 'Intentelo nuevamente',
+      buttons: ['OK']
+    });
+    alert.present();
   }
 
 }
