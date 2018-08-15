@@ -23,7 +23,7 @@ export class SearchPage {
     public monitor: BeaconMonitorProvider,
     private ngzone: NgZone
   ) {
-    this.gif = '../assets/imgs/gif1.gif';
+    this.gif = 'assets/imgs/gif1.gif';
   }
 
   ionViewDidLoad() {
@@ -39,7 +39,7 @@ export class SearchPage {
       this.ngzone.run(() => {
         if (distance < 0) {
           if (this.negativecontroller < -10) {
-            this.gif = '../assets/imgs/gif1.gif';
+            this.gif = 'assets/imgs/gif1.gif';
             this.label = 'Fuera de rango';
             this.label2 = '';
             this.fuera = true;
@@ -53,17 +53,17 @@ export class SearchPage {
           this.negativecontroller = 0;
 
           if (this.distance < 2) {
-            this.gif = '../assets/imgs/gif1.gif';
+            this.gif = 'assets/imgs/gif1.gif';
             this.label = 'Muy cerca';
             this.label2 = `Estas a menos de ${Math.round(distance)} mts`;
           }
           else if (this.distance <= 15) {
-            this.gif = '../assets/imgs/gif2.gif';
+            this.gif = 'assets/imgs/gif2.gif';
             this.label = 'Cerca';
             this.label2 = `Estas a menos de ${Math.round(distance)} mts`;
           }
           else {
-            this.gif = '../assets/imgs/gif3.gif';
+            this.gif = 'assets/imgs/gif3.gif';
             this.label = 'Lejos';
             this.label2 = `Estas a mas de ${Math.round(distance)} mts`;
           }
