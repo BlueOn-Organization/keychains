@@ -21,12 +21,17 @@ beacon {
     }
   }
 
-  ion-item-options .button:last-child {
-    padding-right: 0 !important;
+  ion-item-options .button {
+    background-color: white;
+    color: #2575bb;
+
+    &:last-child {
+      padding-right: 0 !important;
+    }
   }
 
   .list-md ion-item-sliding {
-    background-color: map-get($colors, primary);
+    // background-color: map-get($colors, primary);
   }
 
   #nombre {
