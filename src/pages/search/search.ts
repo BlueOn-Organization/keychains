@@ -55,17 +55,17 @@ export class SearchPage {
           if (this.distance < 2) {
             this.gif = '../assets/imgs/gif1.gif';
             this.label = 'Muy cerca';
-            this.label2 = '';
+            this.label2 = `Estas a menos de ${Math.round(distance)} mts`;
           }
-          else if (this.distance <= 5) {
+          else if (this.distance <= 15) {
             this.gif = '../assets/imgs/gif2.gif';
-            this.label = 'Estas lejos';
-            this.label2 = `distancia aproximada ${distance}m`;
+            this.label = 'Cerca';
+            this.label2 = `Estas a menos de ${Math.round(distance)} mts`;
           }
           else {
             this.gif = '../assets/imgs/gif3.gif';
-            this.label = 'Bastante lejos';
-            this.label2 = '';
+            this.label = 'Lejos';
+            this.label2 = `Estas a mas de ${Math.round(distance)} mts`;
           }
           this.distance = distance;
         }

@@ -1,21 +1,22 @@
-<ion-header no-border>
-  <ion-navbar transparent>
-    <ion-title color="light"></ion-title>
-  </ion-navbar>
-</ion-header>
 <ion-content>
   <ion-grid>
-      <ion-row justify-content-center align-items-center >
+    <ion-row justify-content-center align-items-center id="label-name">
+      <div>
         <span>Estas buscadon:</span>
         <div>{{beacon_name}}</div>
-      </ion-row>
+      </div>
+    </ion-row>
     <ion-row justify-content-center align-items-center id="animation">
-      <!-- <ion-card>
-        <h1 no-padding no-margin>{{label}}</h1>
-        <h3 no-padding no-margin>{{label2}}</h3>
-      </ion-card>
-      <ion-spinner name="crescent" duration="4000" [hidden]="fuera"></ion-spinner> -->
       <img [src]="gif" alt="animation" />
+    </ion-row>
+    <ion-row justify-content-center align-items-center id="estado">
+      <div>{{label}}</div>
+    </ion-row>
+    <ion-row justify-content-center align-items-center id="distancia">
+      <div>{{label2}}</div>
+    </ion-row>
+    <ion-row justify-content-center align-items-center id="back">
+      <div>Volver</div>
     </ion-row>
   </ion-grid>
 </ion-content>
