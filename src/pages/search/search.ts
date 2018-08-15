@@ -52,10 +52,15 @@ export class SearchPage {
           }
           this.negativecontroller = 0;
 
+          if (this.distance < 1) {
+            this.gif = 'assets/imgs/gif1.gif';
+            this.label = 'Muy cerca';
+            this.label2 = `Estas a menos de 1 mt`;
+          }
           if (this.distance < 2) {
             this.gif = 'assets/imgs/gif1.gif';
             this.label = 'Muy cerca';
-            this.label2 = `Estas a menos de ${Math.round(distance)} mts`;
+            this.label2 = `Estas a menos de 2 mts`;
           }
           else if (this.distance <= 15) {
             this.gif = 'assets/imgs/gif2.gif';
