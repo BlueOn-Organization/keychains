@@ -7,6 +7,7 @@ import * as firebase from 'firebase/app';
 import { Platform } from 'ionic-angular';
 import { Facebook } from '@ionic-native/facebook';
 import { GooglePlus } from '@ionic-native/google-plus';
+import {HomePage} from "../home/home";
 
 export interface User {
   email: string;
@@ -74,7 +75,7 @@ export class LoginPage {
         const facebookCredential = firebase.auth.FacebookAuthProvider.credential(res.authResponse.accessToken);
         return firebase.auth().signInWithCredential(facebookCredential).then(result =>{
           this.storage.set('introShown', true);
-          this.navCtrl.setRoot('IntroPage', {}, {
+          this.navCtrl.setRoot(HomePage, {}, {
             animate: true,
             direction: 'forward'
           });
@@ -84,7 +85,7 @@ export class LoginPage {
       this.afAuth.auth.signInWithPopup(new firebase.auth.FacebookAuthProvider).then(x=>{
           if (x){
             this.storage.set('introShown', true);
-            this.navCtrl.setRoot('IntroPage', {}, {
+            this.navCtrl.setRoot(HomePage, {}, {
               animate: true,
               direction: 'forward'
             });
@@ -109,7 +110,7 @@ export class LoginPage {
         return await this.afAuth.auth.signInWithCredential(firebase.auth.GoogleAuthProvider.credential(gplusUser.idToken))
           .then(result =>{
             this.storage.set('introShown', true);
-            this.navCtrl.setRoot('IntroPage', {}, {
+            this.navCtrl.setRoot(HomePage, {}, {
               animate: true,
               direction: 'forward'
             });
@@ -122,7 +123,7 @@ export class LoginPage {
       this.afAuth.auth.signInWithPopup(new auth.TwitterAuthProvider()).then(x => {
           if (x) {
             this.storage.set('introShown', true);
-            this.navCtrl.setRoot('IntroPage', {}, {
+            this.navCtrl.setRoot(HomePage, {}, {
               animate: true,
               direction: 'forward'
             });
