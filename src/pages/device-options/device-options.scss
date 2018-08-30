@@ -1,23 +1,18 @@
 page-device-options {
     // text-align: center;
-    .scroll-content {
-        overflow: hidden;
-    }
 
-    ion-header {
-        .toolbar-title{
-            padding: 0 !important;
-            color: white;
-        }
+  .scroll-content{
+    display: flex;
+    flex-direction: column;
+    align-content: stretch;
+    // padding-top: 5px !important;
+    background-image: url('../assets/imgs/Finicio.jpg');
+    background-size: 100% 100%;
+    text-align: center;
+    overflow: hidden;
+  }
 
-        .back-button {
-            color: white;
-        }
-    
-        .toolbar-background{
-            background-color: $header-color !important;
-        }
-    }
+
 
     ion-item{
         padding-left: 0 !important;
@@ -26,16 +21,18 @@ page-device-options {
             // text-align: center;
         }
 
-        .imput-has-focus .item-inner {
-            background-color: aqua !important;
-            border-left: 0 !important;
-        }
+
     }
 
     .item-inner {
-        border-bottom-color: map-get($colors, 'primary') !important;
-        -webkit-box-shadow: inset 0 -1px 0 0 map-get($colors, 'primary') !important;
-        box-shadow: inset 0 -1px 0 0 map-get($colors, 'primary') !important;
+        border-bottom-color: map-get($colors, 'light') !important;
+        -webkit-box-shadow: inset 0 -1px 0 0 map-get($colors, 'light') !important;
+        box-shadow: inset 0 -1px 0 0 map-get($colors, 'light') !important;
+    }
+
+    .item-md{
+      color: #fff !important;
+      background-color: transparent !important;
     }
 
     #timer-tick {
@@ -63,6 +60,6 @@ page-device-options {
         #c { background-color: yellow; }
         #d { background-color: greenyellow; }
         #na { background-color: lightgray; }
-        
+
     }
 }

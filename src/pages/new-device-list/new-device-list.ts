@@ -81,4 +81,8 @@ export class NewDeviceListPage {
     prompt.present();
   }
 
+  link(){
+    window.open("http://google.com",'_system', 'location=yes');
+  }
+
 }

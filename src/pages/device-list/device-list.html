@@ -9,4 +9,5 @@
 
 <ion-content padding fullscreen>
   <beacon *ngFor="let device of saved_devices" [device]="device"></beacon>
+  <a class="btn_link" (click)="link()"></a>
 </ion-content>

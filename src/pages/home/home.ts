@@ -68,4 +68,8 @@ export class HomePage {
       this.navCtrl.setRoot('LoginPage');
     });
   }
+
+  link(){
+    window.open("http://google.com",'_system', 'location=yes');
+  }
 }

@@ -23,4 +23,8 @@ export class DeviceListPage {
     this.saved_devices = this.beaconsStorage.list
   }
 
+  link(){
+    window.open("http://google.com",'_system', 'location=yes');
+  }
+
 }

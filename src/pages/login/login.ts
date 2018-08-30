@@ -90,7 +90,7 @@ export class LoginPage {
       this.afAuth.auth.signInWithPopup(new firebase.auth.FacebookAuthProvider).then(x=>{
           if (x){
             this.storage.set('introShown', true);
-            this.navCtrl.setRoot(HomePage, {}, {
+            this.navCtrl.setRoot('IntroPage', {}, {
               animate: true,
               direction: 'forward'
             });
@@ -125,7 +125,7 @@ export class LoginPage {
           });
 
       } catch (err) {
-        console.log(err)
+        console.log(err);
         this.showAlert();
       }
     } else {
@@ -149,6 +149,10 @@ export class LoginPage {
       buttons: ['OK']
     });
     alert.present();
+  }
+
+  link(){
+    window.open("http://google.com",'_system', 'location=yes');
   }
 
 }

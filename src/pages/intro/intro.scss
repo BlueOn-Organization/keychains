@@ -1,43 +1,21 @@
 page-intro {
-  box-shadow: 0 2px 6px 0 rgba(34, 34, 34, 0.6), 0 4px 5px rgba(0, 0, 0, 0.1);
-  .toolbar-title {
-    padding: 0 !important;
+  .scroll-content{
+    display: flex;
+    flex-direction: column;
+    align-content: stretch;
+    // padding-top: 5px !important;
+    background-image: url('../assets/imgs/Fllaveros.jpg');
+    background-size: 100% 100%;
+    text-align: center;
     color: white;
   }
 
-  ion-navbar .toolbar-background{
-    background-color: $header-color !important;
-  }
-
-  #name {
-    position: absolute;
-    left: 65px;
-    top: 10px;
-  }
-
-  #logo {
-    display: inline-block
-  }
-
-  #like {
-    position: absolute;
-    right: 0;
-  }
-
-  #by{
-    position: fixed;
-    bottom: 10px;
-  }
   #btn{
     position: fixed;
-    bottom: 20px;
-    left: 40px;
+    bottom: 100px;
+    left: 50px;
     color: white;
 
-  }
-  .toolbar-background {
-    background: transparent;
-    border-color: transparent;
   }
 
   .slide-zoom {
@@ -47,27 +25,9 @@ page-intro {
   .slide-title {
     margin-top: 2.8rem;
   }
-  #slid{
+  img{
     width: 100%;
     height: 100%;
   }
-
-
-  b {
-    font-weight: 500;
-  }
-
-  p {
-    padding: 0 40px;
-    font-size: 14px;
-    line-height: 1.5;
-    color: #60646B;
-
-    b {
-      color: #000000;
-    }
-  }
-
-
 
 }
