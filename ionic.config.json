@@ -1,0 +1,7 @@
+{
+  "name": "beacon_search",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}
