@@ -10,7 +10,8 @@ import { Beacon } from '../../app/beacon.model';
 })
 export class SearchPage {
   distance: number = -1;
-  background: string;
+  beacon_name: string;
+  gif: string = '';
   label: string = 'Buscando...';
   label2: string = '';
   fuera: boolean;
@@ -22,11 +23,12 @@ export class SearchPage {
     public monitor: BeaconMonitorProvider,
     private ngzone: NgZone
   ) {
-    this.background = '#2575bb';
+    this.gif = 'assets/imgs/gifb.gif';
   }
 
   ionViewDidLoad() {
     const beacon = <Beacon>this.navParams.get('beacon');
+    this.beacon_name = beacon.nombre;
     this.find(beacon);
   }
 
@@ -37,7 +39,7 @@ export class SearchPage {
       this.ngzone.run(() => {
         if (distance < 0) {
           if (this.negativecontroller < -10) {
-            this.background = '#eff0f1';
+            this.gif = 'assets/imgs/giff.gif';
             this.label = 'Fuera de rango';
             this.label2 = '';
             this.fuera = true;
@@ -51,29 +53,23 @@ export class SearchPage {
           this.negativecontroller = 0;
 
           if (this.distance < 1) {
-            this.background = '#2575bb';
+            this.gif = 'assets/imgs/gif1.gif';
             this.label = 'Muy cerca';
-            this.label2 = '';
+            this.label2 = `Estas a menos de 1 mt`;
+          }else if (this.distance < 2) {
+            this.gif = 'assets/imgs/gif1.gif';
+            this.label = 'Muy cerca';
+            this.label2 = `Estas a menos de 2 mts`;
           }
-          else if (this.distance <= 2) {
-            this.background = '#0a1863';
-            this.label = 'Bastante cerca';
-            this.label2 = `distancia aproximada ${distance}m`;
-          }
-          else if (this.distance <= 3) {
-            this.background = '#0a1863';
-            this.label = 'Estas cerca';
-            this.label2 = `distancia aproximada ${distance}m`;
-          }
-          else if (this.distance <= 5) {
-            this.background = '#edd015';
-            this.label = 'Estas lejos';
-            this.label2 = `distancia aproximada ${distance}m`;
+          else if (this.distance <= 4) {
+            this.gif = 'assets/imgs/gif2.gif';
+            this.label = 'Cerca';
+            this.label2 = `Estas a menos de ${Math.round(distance) + 1} mts`;
           }
           else {
-            this.background = '#bc1e0d';
-            this.label = 'Bastante lejos';
-            this.label2 = '';
+            this.gif = 'assets/imgs/gif3.gif';
+            this.label = 'Lejos';
+            this.label2 = `Estas a mas de ${Math.round(distance) + 1} mts`;
           }
           this.distance = distance;
         }

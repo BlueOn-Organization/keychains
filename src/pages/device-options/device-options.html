@@ -4,19 +4,20 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content padding fullscreen>
   <ion-list>
 
     <ion-item class="imput-has-focus">
-      <ion-label color="primary" stacked>Renombrar el dispositivo</ion-label>
+      <ion-label color="light" stacked>Renombrar el dispositivo</ion-label>
       <ion-input [(ngModel)]="beacon.nombre" placeholder="nuevo nombre"></ion-input>
     </ion-item>
+    <br>
+    <ion-note>Major:{{beacon.major}}</ion-note>
+    <ion-note>Minor:{{beacon.minor}}</ion-note>
+    <br>
+    <br>
 
-    <br>
-    <br>
-    <br>
-
-    <ion-label color="primary" stacked >Seleccione el tiempo de alerta</ion-label>
+    <ion-label color="light" stacked >Seleccione el tiempo de alerta</ion-label>
     <br>
     <!-- <ion-item> -->
         <ion-segment [(ngModel)]="beacon.tick" mode="ios" id="timer-tick">
@@ -27,17 +28,16 @@
             <ion-segment-button outline value="300" id="d">5m</ion-segment-button>
           </ion-segment>
     <!-- </ion-item> -->
-
     <br>
     <br>
     <br>
 
-    <button ion-button icon-start block outline color="primary" (click)="guardar()">
+    <button ion-button icon-start block outline color="light" (click)="guardar()">
       <ion-icon name="done-all"></ion-icon>
       Guardar cambios
     </button>
     <br>
-    <button ion-button icon-start block outline color="danger" (click)="eliminar()">
+    <button ion-button icon-start block outline color="light" (click)="eliminar()">
       <ion-icon name="trash"></ion-icon>
       Eliminar
     </button>

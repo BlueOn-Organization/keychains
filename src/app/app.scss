@@ -21,3 +21,20 @@ html , body, .back-transparent, ion-app, .nav-decor {
 }
 
 $header-color: #990066;
+
+ion-header{
+  .toolbar-title {
+    color: white;
+  }
+
+  .back-button {
+    color: white;
+  }
+}
+
+@font-face {
+  font-family: 'Avenir';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../assets/fonts/Avenir.ttf');
+}

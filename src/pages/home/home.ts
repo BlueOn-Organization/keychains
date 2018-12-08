@@ -1,48 +1,37 @@
 import { Component } from '@angular/core';
 import { NavController, AlertController } from 'ionic-angular';
-import { BeaconsStorage } from '../../providers/beacons-storage/beacons-storage';
-import { Beacon } from '../../app/beacon.model';
 import { IBeacon } from '@ionic-native/ibeacon';
 import { PopoverController } from 'ionic-angular';
-import {ContentPopoverComponent} from "../../components/content-popover/content-popover";
 import {AngularFireAuth} from "angularfire2/auth";
-import * as firebase from 'firebase/app';
 import {LoginPage} from "../login/login";
 import {Storage} from "@ionic/storage";
+import { BeaconsStorage } from '../../providers/beacons-storage/beacons-storage';
 
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
 })
 export class HomePage {
-  saved_devices: Beacon[] = []
+
 
   constructor(
     public navCtrl: NavController,
-    private beaconsStorage: BeaconsStorage,
     private ibeacon: IBeacon,
     public storage: Storage,
     private alert: AlertController,
     public popoverCtrl: PopoverController,
     private afAuth: AngularFireAuth,
+    private beaconsStorage: BeaconsStorage
   ) {}
 
-  presentPopover(myEvent) {
-    let popover = this.popoverCtrl.create(ContentPopoverComponent);
-    popover.present({
-      ev: myEvent
-    });
-  }
-
   ionViewDidLoad() {
-      this.verifyAuth();
+      this.checkBluetoothEnabled();
   }
-
 
   checkBluetoothEnabled() {
     this.ibeacon.isBluetoothEnabled().then(enabled => {
       if (enabled) {
-        this.getBeacons();
+        this.beaconsStorage.load();
       } else {
         this.alert.create({
           enableBackdropDismiss: false,
@@ -57,25 +46,30 @@ export class HomePage {
     });
   }
 
-  verifyAuth() {
-    this.storage.get('introShown').then(result => {
-      console.log('introShown' + result);
-      if (result) {
-        this.checkBluetoothEnabled();
-      } else {
-        this.navCtrl.setRoot(LoginPage);
-      }
-    });
-  }
-  getBeacons() {
-    this.beaconsStorage.load().then((beacons) => this.saved_devices = beacons);
-  }
-
   add() {
     this.navCtrl.push('NewDevicePage');
   }
 
   search() {
     this.navCtrl.push('NewDeviceListPage');
+  }
+
+  device(){
+    this.navCtrl.push('DeviceListPage');
+  }
+
+  tutorial(){
+    this.navCtrl.setRoot('IntroPage');
+  }
+
+  logout(){
+    this.afAuth.auth.signOut().then(x=>{
+      this.storage.set('introShown', false);
+      this.navCtrl.setRoot('LoginPage');
+    });
+  }
+
+  link(){
+    window.open("http://google.com",'_system', 'location=yes');
   }
 }

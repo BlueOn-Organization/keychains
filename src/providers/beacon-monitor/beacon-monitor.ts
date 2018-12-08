@@ -11,6 +11,8 @@ export class BeaconMonitorProvider {
   private uuid: string = 'b9407f30-f5f8-466e-aff9-25556b57fe6d';
 
 
+
+
   constructor(
     private ibeacon: IBeacon,
     private stalker: BeaconStalkerProvider
@@ -49,7 +51,7 @@ export class BeaconMonitorProvider {
 
   private start(): Observable<IBeaconPluginResult> {
     this.beaconRegion = this.ibeacon.BeaconRegion('blue-on', this.uuid);
-    
+
     if (this.stalker.isWatching) this.stalker.unWatch();
 
     this.ibeacon.requestAlwaysAuthorization();

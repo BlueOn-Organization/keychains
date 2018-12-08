@@ -3,7 +3,6 @@ import { Beacon } from '../../app/beacon.model';
 import { LocalNotifications } from '@ionic-native/local-notifications';
 import { BeaconsStorage } from '../beacons-storage/beacons-storage';
 import { IBeacon, BeaconRegion } from '@ionic-native/ibeacon';
-import { NavController, App } from 'ionic-angular';
 
 @Injectable()
 export class BeaconStalkerProvider {
@@ -14,17 +13,13 @@ export class BeaconStalkerProvider {
   private uuid: string = 'b9407f30-f5f8-466e-aff9-25556b57fe6d';
   private watching: boolean = false;
 
-  private navCtrl: NavController;
-
   constructor(
     private localNotifications: LocalNotifications,
     beaconStorage: BeaconsStorage,
-    private ibeacon: IBeacon,
-    app: App
+    private ibeacon: IBeacon
   ) {
     this.spected_beacons = beaconStorage.list;
     this.nearby_beacons = {};
-    this.navCtrl = app.getActiveNav();
   }
 
   get isWatching() {
@@ -32,18 +27,18 @@ export class BeaconStalkerProvider {
   }
 
   watch() {
+    this.watching = true
+
     this.start().subscribe(
-      data => this.checkFound(data.beacons), 
+      data => this.checkFound(data.beacons),
       error => console.error(error)
     );
 
     this.spected_beacons.filter(beacon => beacon.tick > 0)
       .forEach((beacon, index) => this.findDevice(beacon, index));
-
-      this.watching = true
   }
 
-  unWatch() {    
+  unWatch() {
     this.workers.forEach(element => clearTimeout(element));
     this.workers = [];
     this.stop();
@@ -84,7 +79,7 @@ export class BeaconStalkerProvider {
       }
 
       this.deleteTimeout(id);
-      
+
     }, (beacon.tick) * 1000);
 
     this.workers.push(id);
@@ -120,7 +115,7 @@ export class BeaconStalkerProvider {
     this.ibeacon.startMonitoringForRegion(this.beaconRegion);
 
     this.ibeacon.startRangingBeaconsInRegion(this.beaconRegion)
-      .then(() => console.log('Monitoriando dispositivos cercanos'))
+      .then(() => console.log('Monitoreando dispositivos cercanos'))
       .catch(console.error);
 
     return delegate.didRangeBeaconsInRegion();

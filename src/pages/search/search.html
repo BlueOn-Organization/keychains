@@ -4,13 +4,24 @@
   </ion-navbar>
 </ion-header>
 <ion-content>
-  <ion-grid [ngStyle]="{'background-color': background}">
-    <ion-row justify-content-center align-items-center >
-      <ion-card>
-        <h1 no-padding no-margin>{{label}}</h1>
-        <h3 no-padding no-margin>{{label2}}</h3>
-      </ion-card>
-      <ion-spinner name="crescent" duration="4000" [hidden]="fuera"></ion-spinner>
+  <ion-grid>
+    <ion-row justify-content-center align-items-center id="label-name">
+      <div>
+        <span>Estas buscado:</span>
+        <div>{{beacon_name}}</div>
+      </div>
     </ion-row>
+    <ion-row justify-content-center align-items-center id="animation">
+      <img [src]="gif" alt="animation" />
+    </ion-row>
+    <ion-row justify-content-center align-items-center id="estado">
+      <div>{{label}}</div>
+    </ion-row>
+    <ion-row justify-content-center align-items-center id="distancia">
+      <div>{{label2}}</div>
+    </ion-row>
+    <!-- <ion-row justify-content-center align-items-center id="back">
+      <div>Volver</div>
+    </ion-row> -->
   </ion-grid>
 </ion-content>

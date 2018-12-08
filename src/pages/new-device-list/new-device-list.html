@@ -1,11 +1,10 @@
 <ion-header no-border>
     <ion-navbar transparent>
-      <ion-title color="light">Dispositivos nuevos encontrados</ion-title>
+      <ion-title color="light">LLaveros encontrados</ion-title>
   </ion-navbar>
 </ion-header>
 
-
-<ion-content padding color="primary">
+<ion-content padding fullscreen>
   <ion-card *ngFor="let device of new_beacons">
     <ion-item color="secondary" class="data">
       <div item-content>
@@ -16,5 +15,8 @@
         <ion-icon name="add"></ion-icon>
       </button>
     </ion-item>
-  </ion-card>  
+  </ion-card>
+
+
+  <a class="btn_link" (click)="link()"></a>
 </ion-content>
